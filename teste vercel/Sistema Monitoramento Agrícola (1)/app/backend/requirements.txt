@@ -4,7 +4,7 @@ pydantic[email]>=2.5.0,<2.10
 pydantic-settings>=2.2.0
 python-dotenv>=1.0.0
 dotenv>=0.9.9
-python-multipart>=0.0.6  # Required for FastAPI Form data handling
+python-multipart>=0.0.6
 
 # Development and testing
 pytest>=8.4.1
@@ -16,7 +16,6 @@ mangum==0.19.0
 
 # Crypto
 cryptography
-
 
 # database module dependencies
 sqlalchemy>=2.0.0
