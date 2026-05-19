@@ -1,0 +1,31 @@
+{
+    "title": "cities",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "name": {
+            "type": "string",
+            "description": "City name"
+        },
+        "state_id": {
+            "type": "integer",
+            "description": "Foreign key to states table"
+        },
+        "area_hectares": {
+            "type": "number",
+            "description": "Total agricultural area in hectares"
+        },
+        "main_crop": {
+            "type": "string",
+            "description": "Main crop produced"
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "state_id"
+    ]
+}

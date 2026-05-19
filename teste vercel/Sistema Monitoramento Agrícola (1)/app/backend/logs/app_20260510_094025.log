@@ -1,0 +1,177 @@
+2026-05-10 09:40:25,082 - main - INFO - === Logging system initialized ===
+2026-05-10 09:40:25,083 - main - INFO - Log file: logs/app_20260510_094025.log
+2026-05-10 09:40:25,083 - main - INFO - Log level: INFO
+2026-05-10 09:40:25,083 - main - INFO - Timestamp: 20260510_094025
+2026-05-10 09:40:26,115 - main - INFO - Included router: routers.ai_prediction.router
+2026-05-10 09:40:26,145 - main - INFO - Included router: routers.aihub.router
+2026-05-10 09:40:26,159 - main - INFO - Included router: routers.auth.router
+2026-05-10 09:40:26,208 - main - INFO - Included router: routers.cities.router
+2026-05-10 09:40:26,211 - main - INFO - Included router: routers.health.router
+2026-05-10 09:40:26,257 - main - INFO - Included router: routers.regions.router
+2026-05-10 09:40:26,285 - main - INFO - Included router: routers.settings.router
+2026-05-10 09:40:26,336 - main - INFO - Included router: routers.states.router
+2026-05-10 09:40:26,380 - main - INFO - Included router: routers.storage.router
+2026-05-10 09:40:26,388 - main - INFO - Included router: routers.user.router
+2026-05-10 09:40:26,440 - main - INFO - Included router: routers.user_profiles.router
+2026-05-10 09:40:26,442 - main - INFO - === Application startup initiated ===
+2026-05-10 09:40:26,442 - services.database - INFO - Ignore creating tables
+2026-05-10 09:40:26,442 - services.mock_data - INFO - Ignore initialize data
+2026-05-10 09:40:26,442 - services.auth - INFO - Ignore initialize admin
+2026-05-10 09:40:26,442 - main - INFO - === Application startup completed successfully ===
+2026-05-10 09:40:32,711 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:40:32,711 - core.database - WARNING - Database session maker not available, attempting lazy initialization...
+2026-05-10 09:40:32,711 - core.database - WARNING - Database not initialized, attempting lazy initialization...
+2026-05-10 09:40:32,711 - core.database - INFO - Starting database initialization...
+2026-05-10 09:40:32,711 - core.config - DEBUG - Read dynamic attribute database_url from environment variable DATABASE_URL
+2026-05-10 09:40:32,711 - core.database - INFO - Normalizing database URL for async compatibility...
+2026-05-10 09:40:32,712 - core.database - INFO - Creating async database engine...
+2026-05-10 09:40:32,714 - core.database - INFO - Using QueuePool with connection pooling for non-Lambda environment
+2026-05-10 09:40:32,761 - core.database - INFO - Database engine created successfully
+2026-05-10 09:40:32,761 - core.database - INFO - Creating async session maker...
+2026-05-10 09:40:32,761 - core.database - INFO - Async session maker created successfully
+2026-05-10 09:40:32,761 - core.database - INFO - Database connection initialized successfully
+2026-05-10 09:40:32,761 - core.database - DEBUG - [DB_OP] Starting create_tables
+2026-05-10 09:40:32,761 - core.database - INFO - 🔧 Starting table creation...
+2026-05-10 09:40:32,766 - core.config - DEBUG - Read dynamic attribute jwt_secret_key from environment variable JWT_SECRET_KEY
+2026-05-10 09:40:32,766 - core.config - DEBUG - Read dynamic attribute jwt_algorithm from environment variable JWT_ALGORITHM
+2026-05-10 09:40:32,778 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:40:33,162 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:40:33,164 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:40:33,164 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0003s
+2026-05-10 09:40:33,165 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:40:34,122 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-10 09:40:34,123 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.9598s
+2026-05-10 09:40:34,284 - core.database - INFO - Tables initialized successfully
+2026-05-10 09:40:34,285 - core.database - DEBUG - [DB_OP] Create tables completed in 1.5238s
+2026-05-10 09:40:34,347 - core.database - INFO - Lazy database initialization completed successfully
+2026-05-10 09:40:34,347 - core.database - DEBUG - [DB_OP] Database session created successfully in 1.6365s
+2026-05-10 09:40:34,348 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:40:34,922 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:40:34,923 - core.database - DEBUG - [DB_OP] Database session cleanup after 2.2126s
+2026-05-10 09:41:54,548 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:41:54,548 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0005s
+2026-05-10 09:41:54,549 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:41:54,551 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:41:54,814 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:41:54,814 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:41:54,815 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-10 09:41:54,815 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:41:55,099 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:41:55,100 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.5522s
+2026-05-10 09:41:55,178 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-10 09:41:55,179 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3643s
+2026-05-10 09:42:10,871 - core.config - DEBUG - Read dynamic attribute frontend_url from environment variable FRONTEND_URL
+2026-05-10 09:42:10,872 - core.config - DEBUG - Read dynamic attribute oidc_issuer_url from environment variable OIDC_ISSUER_URL
+2026-05-10 09:42:13,739 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:42:13,739 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0005s
+2026-05-10 09:42:13,740 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:42:13,780 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-10 09:42:14,109 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:42:14,110 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3710s
+2026-05-10 09:42:25,847 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:42:25,848 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0005s
+2026-05-10 09:42:26,409 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-10 09:42:26,409 - routers.auth - INFO - [login] Starting OIDC flow with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-10 09:42:26,410 - core.config - DEBUG - Read dynamic attribute oidc_client_id from environment variable OIDC_CLIENT_ID
+2026-05-10 09:42:26,410 - core.config - DEBUG - Read dynamic attribute oidc_scope from environment variable OIDC_SCOPE
+2026-05-10 09:42:26,410 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.5628s
+2026-05-10 09:42:47,164 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:42:47,165 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0013s
+2026-05-10 09:42:47,166 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-10 09:42:47,844 - routers.auth - INFO - [callback] Exchanging code for tokens with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-10 09:42:47,845 - core.config - DEBUG - Read dynamic attribute oidc_client_secret from environment variable OIDC_CLIENT_SECRET
+2026-05-10 09:42:48,091 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=5.0 socket_options=None
+2026-05-10 09:42:48,182 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f62cc49ebf0>
+2026-05-10 09:42:48,183 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f62cc5d3940> server_hostname='auth.atoms.dev' timeout=5.0
+2026-05-10 09:42:48,189 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f62cc49e950>
+2026-05-10 09:42:48,190 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-10 09:42:48,190 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-10 09:42:48,190 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-10 09:42:48,191 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-10 09:42:48,191 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-10 09:42:48,277 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 10 May 2026 16:42:48 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'x-response-time', b'0.062s'), (b'x-request-id', b'WePI0SERxqh8Be_7N4V_Cb4-OcFg6-9gKDlTllum7Vo'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9f9a66333b3aff84-LAX')])
+2026-05-10 09:42:48,278 - httpx - INFO - HTTP Request: POST https://auth.atoms.dev/api/v1/oidc/token "HTTP/1.1 200 OK"
+2026-05-10 09:42:48,279 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-10 09:42:48,280 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-10 09:42:48,280 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-10 09:42:48,280 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-10 09:42:48,280 - httpcore.connection - DEBUG - close.started
+2026-05-10 09:42:48,281 - httpcore.connection - DEBUG - close.complete
+2026-05-10 09:42:48,309 - core.auth - INFO - Fetching JWKS from: https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json
+2026-05-10 09:42:48,310 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=60.0 socket_options=None
+2026-05-10 09:42:48,318 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f62cc4f8610>
+2026-05-10 09:42:48,318 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f62cc5d1740> server_hostname='auth.atoms.dev' timeout=60.0
+2026-05-10 09:42:48,328 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f62cc49fb20>
+2026-05-10 09:42:48,329 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2026-05-10 09:42:48,330 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-10 09:42:48,331 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2026-05-10 09:42:48,331 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-10 09:42:48,331 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2026-05-10 09:42:48,371 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 10 May 2026 16:42:48 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cache-control', b'public, max-age=3600'), (b'x-response-time', b'0.001s'), (b'x-request-id', b'61106fb9438419f09cde68309e390b9c'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9f9a66341ce42ee1-LAX')])
+2026-05-10 09:42:48,372 - httpx - INFO - HTTP Request: GET https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json "HTTP/1.1 200 OK"
+2026-05-10 09:42:48,372 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2026-05-10 09:42:48,373 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-10 09:42:48,373 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-10 09:42:48,374 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-10 09:42:48,374 - core.auth - INFO - Successfully fetched JWKS with 1 keys
+2026-05-10 09:42:48,375 - httpcore.connection - DEBUG - close.started
+2026-05-10 09:42:48,375 - httpcore.connection - DEBUG - close.complete
+2026-05-10 09:42:48,376 - core.auth - INFO - ID token successfully validated for user hash: c2a2e586
+2026-05-10 09:42:48,376 - services.auth - DEBUG - [DB_OP] Starting get_or_create_user - platform_sub: 1190585
+2026-05-10 09:42:48,742 - services.auth - DEBUG - [DB_OP] User lookup completed in 0.3656s - found: True
+2026-05-10 09:42:48,743 - services.auth - DEBUG - [DB_OP] Starting user commit/refresh
+2026-05-10 09:42:49,297 - services.auth - DEBUG - [DB_OP] User commit/refresh completed in 0.5546s
+2026-05-10 09:42:49,298 - core.config - DEBUG - Read dynamic attribute jwt_expire_minutes from environment variable JWT_EXPIRE_MINUTES
+2026-05-10 09:42:49,298 - core.auth - DEBUG - Authentication token created for user hash: c2a2e586
+2026-05-10 09:42:49,299 - routers.auth - INFO - [callback] OIDC callback successful, redirecting to https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/auth/callback?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMTkwNTg1IiwiZW1haWwiOiJhZG1jYW1idWlzb2x1Y29lc2VtaWFAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwibmFtZSI6ImFkbWNhbWJ1aXNvbHVjb2VzZW1pYSIsImxhc3RfbG9naW4iOiIyMDI2LTA1LTEwVDE2OjQyOjQ4Ljc0MzA3OSswMDowMCIsImV4cCI6MTc4MTAyMzM2OSwiaWF0IjoxNzc4NDMxMzY5LCJuYmYiOjE3Nzg0MzEzNjl9.gz-ZDwxOvpJmbfgssfilZ53wDC1qu4uvQSKp73jVE5M&expires_at=1781023369&token_type=Bearer
+2026-05-10 09:42:49,299 - core.database - DEBUG - [DB_OP] Database session cleanup after 2.1355s
+2026-05-10 09:42:52,407 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-10 09:42:55,224 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:42:55,225 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0008s
+2026-05-10 09:42:55,226 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:42:55,228 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:42:55,519 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:42:55,519 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:42:55,520 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-10 09:42:55,520 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:42:55,591 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:42:55,592 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3677s
+2026-05-10 09:42:56,012 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-10 09:42:56,013 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4935s
+2026-05-10 09:43:18,252 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:43:18,252 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-10 09:43:18,253 - routers.states - DEBUG - Querying statess: query={"region_id":3}, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:43:18,742 - routers.states - DEBUG - Found 3 statess
+2026-05-10 09:43:18,743 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4909s
+2026-05-10 09:43:37,315 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:43:37,316 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0006s
+2026-05-10 09:43:37,317 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-10 09:43:37,688 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3728s
+2026-05-10 09:43:41,597 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:43:41,597 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0005s
+2026-05-10 09:43:41,598 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:43:41,600 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:43:41,835 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:43:41,836 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:43:41,836 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-10 09:43:41,837 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:43:41,961 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:43:41,962 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3650s
+2026-05-10 09:43:42,208 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-10 09:43:42,209 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3729s
+2026-05-10 09:49:06,315 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:49:06,315 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0006s
+2026-05-10 09:49:06,315 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:49:06,317 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:49:06,553 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:49:06,554 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:49:06,554 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0003s
+2026-05-10 09:49:06,554 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:49:06,798 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:49:06,798 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4838s
+2026-05-10 09:49:07,043 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-10 09:49:07,044 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4904s
+2026-05-10 09:55:57,817 - services.database - DEBUG - [DB_OP] Starting database close
+2026-05-10 09:55:57,819 - core.database - INFO - Database connection closed and engine disposed
+2026-05-10 09:55:57,819 - services.database - INFO - Database connections closed
+2026-05-10 09:55:57,819 - services.database - DEBUG - [DB_OP] Database close completed in 0.0016s

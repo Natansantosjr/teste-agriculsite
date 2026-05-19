@@ -1,0 +1,22 @@
+2026-05-08 05:26:03,598 - main - INFO - === Logging system initialized ===
+2026-05-08 05:26:03,598 - main - INFO - Log file: logs/app_20260508_052603.log
+2026-05-08 05:26:03,598 - main - INFO - Log level: INFO
+2026-05-08 05:26:03,599 - main - INFO - Timestamp: 20260508_052603
+2026-05-08 05:26:04,633 - main - INFO - Included router: routers.aihub.router
+2026-05-08 05:26:04,652 - main - INFO - Included router: routers.auth.router
+2026-05-08 05:26:04,736 - main - INFO - Included router: routers.cities.router
+2026-05-08 05:26:04,740 - main - INFO - Included router: routers.health.router
+2026-05-08 05:26:04,860 - main - INFO - Included router: routers.regions.router
+2026-05-08 05:26:04,886 - main - INFO - Included router: routers.settings.router
+2026-05-08 05:26:05,083 - main - INFO - Included router: routers.states.router
+2026-05-08 05:26:05,121 - main - INFO - Included router: routers.storage.router
+2026-05-08 05:26:05,132 - main - INFO - Included router: routers.user.router
+2026-05-08 05:26:05,316 - main - INFO - Included router: routers.user_profiles.router
+2026-05-08 05:26:05,317 - main - INFO - === Application startup initiated ===
+2026-05-08 05:26:05,317 - services.database - INFO - Ignore creating tables
+2026-05-08 05:26:05,318 - services.mock_data - INFO - Ignore initialize data
+2026-05-08 05:26:05,318 - services.auth - INFO - Ignore initialize admin
+2026-05-08 05:26:05,318 - main - INFO - === Application startup completed successfully ===
+2026-05-08 05:36:44,466 - services.database - DEBUG - [DB_OP] Starting database close
+2026-05-08 05:36:44,467 - services.database - INFO - Database connections closed
+2026-05-08 05:36:44,467 - services.database - DEBUG - [DB_OP] Database close completed in 0.0004s

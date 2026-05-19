@@ -1,0 +1,98 @@
+2026-05-10 15:06:40,197 - main - INFO - === Logging system initialized ===
+2026-05-10 15:06:40,197 - main - INFO - Log file: logs/app_20260510_150640.log
+2026-05-10 15:06:40,197 - main - INFO - Log level: INFO
+2026-05-10 15:06:40,198 - main - INFO - Timestamp: 20260510_150640
+2026-05-10 15:06:42,981 - main - INFO - Included router: routers.ai_prediction.router
+2026-05-10 15:06:43,003 - main - INFO - Included router: routers.aihub.router
+2026-05-10 15:06:43,136 - main - INFO - Included router: routers.audit_logs.router
+2026-05-10 15:06:43,151 - main - INFO - Included router: routers.auth.router
+2026-05-10 15:06:43,197 - main - INFO - Included router: routers.cities.router
+2026-05-10 15:06:43,292 - main - INFO - Included router: routers.clients.router
+2026-05-10 15:06:43,294 - main - INFO - Included router: routers.health.router
+2026-05-10 15:06:43,329 - main - INFO - Included router: routers.regions.router
+2026-05-10 15:06:43,353 - main - INFO - Included router: routers.settings.router
+2026-05-10 15:06:43,393 - main - INFO - Included router: routers.states.router
+2026-05-10 15:06:43,431 - main - INFO - Included router: routers.storage.router
+2026-05-10 15:06:43,440 - main - INFO - Included router: routers.user.router
+2026-05-10 15:06:43,489 - main - INFO - Included router: routers.user_profiles.router
+2026-05-10 15:06:43,490 - main - INFO - === Application startup initiated ===
+2026-05-10 15:06:43,491 - services.database - INFO - Ignore creating tables
+2026-05-10 15:06:43,491 - services.mock_data - INFO - Ignore initialize data
+2026-05-10 15:06:43,491 - services.auth - INFO - Ignore initialize admin
+2026-05-10 15:06:43,491 - main - INFO - === Application startup completed successfully ===
+2026-05-10 15:06:49,140 - core.config - DEBUG - Read dynamic attribute jwt_secret_key from environment variable JWT_SECRET_KEY
+2026-05-10 15:06:49,140 - core.config - DEBUG - Read dynamic attribute jwt_algorithm from environment variable JWT_ALGORITHM
+2026-05-10 15:06:49,471 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 15:06:49,492 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 15:06:49,492 - core.database - WARNING - Database session maker not available, attempting lazy initialization...
+2026-05-10 15:06:49,492 - core.database - WARNING - Database not initialized, attempting lazy initialization...
+2026-05-10 15:06:49,492 - core.database - INFO - Starting database initialization...
+2026-05-10 15:06:49,492 - core.config - DEBUG - Read dynamic attribute database_url from environment variable DATABASE_URL
+2026-05-10 15:06:49,492 - core.database - INFO - Normalizing database URL for async compatibility...
+2026-05-10 15:06:49,493 - core.database - INFO - Creating async database engine...
+2026-05-10 15:06:49,493 - core.database - INFO - Using QueuePool with connection pooling for non-Lambda environment
+2026-05-10 15:06:49,539 - core.database - INFO - Database engine created successfully
+2026-05-10 15:06:49,539 - core.database - INFO - Creating async session maker...
+2026-05-10 15:06:49,539 - core.database - INFO - Async session maker created successfully
+2026-05-10 15:06:49,539 - core.database - INFO - Database connection initialized successfully
+2026-05-10 15:06:49,539 - core.database - DEBUG - [DB_OP] Starting create_tables
+2026-05-10 15:06:49,539 - core.database - INFO - 🔧 Starting table creation...
+2026-05-10 15:06:49,735 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 15:06:49,736 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 15:06:49,736 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-10 15:06:49,736 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 15:06:50,941 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-10 15:06:50,943 - core.database - DEBUG - [DB_OP] Database session cleanup after 1.2072s
+2026-05-10 15:06:51,242 - core.database - INFO - Tables initialized successfully
+2026-05-10 15:06:51,243 - core.database - DEBUG - [DB_OP] Create tables completed in 1.7034s
+2026-05-10 15:06:51,305 - core.database - INFO - Lazy database initialization completed successfully
+2026-05-10 15:06:51,305 - core.database - DEBUG - [DB_OP] Database session created successfully in 1.8139s
+2026-05-10 15:06:51,306 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 15:06:51,878 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 15:06:51,879 - core.database - DEBUG - [DB_OP] Database session cleanup after 2.3871s
+2026-05-10 15:09:56,189 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 15:09:56,190 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0005s
+2026-05-10 15:09:56,190 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 15:09:56,193 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 15:09:56,425 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 15:09:56,425 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 15:09:56,426 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-10 15:09:56,426 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 15:09:56,757 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 15:09:56,758 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.5690s
+2026-05-10 15:09:56,805 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-10 15:09:56,806 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3805s
+2026-05-10 15:12:45,476 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 15:12:45,476 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-10 15:12:45,477 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 15:12:45,478 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 15:12:45,716 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 15:12:45,716 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 15:12:45,717 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-10 15:12:45,717 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 15:12:45,855 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 15:12:45,855 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3796s
+2026-05-10 15:12:46,223 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-10 15:12:46,223 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.5069s
+2026-05-10 15:13:00,167 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 15:13:00,168 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-10 15:13:00,168 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 15:13:00,169 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 15:13:00,392 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 15:13:00,393 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 15:13:00,393 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0001s
+2026-05-10 15:13:00,393 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 15:13:00,545 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 15:13:00,547 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3792s
+2026-05-10 15:13:00,771 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-10 15:13:00,772 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3793s
+2026-05-10 15:21:19,323 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-10 15:21:19,651 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 15:21:19,652 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0008s
+2026-05-10 15:21:19,652 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 15:21:20,955 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 15:21:20,956 - core.database - DEBUG - [DB_OP] Database session cleanup after 1.3051s
+2026-05-10 15:31:21,962 - services.database - DEBUG - [DB_OP] Starting database close
+2026-05-10 15:31:21,963 - core.database - INFO - Database connection closed and engine disposed
+2026-05-10 15:31:21,963 - services.database - INFO - Database connections closed
+2026-05-10 15:31:21,963 - services.database - DEBUG - [DB_OP] Database close completed in 0.0011s

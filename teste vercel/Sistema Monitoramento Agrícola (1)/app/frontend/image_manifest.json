@@ -1,0 +1,68 @@
+{
+  "status": "success",
+  "results": [
+    {
+      "filename": "hero-satellite-agriculture.jpg",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-05/n5ucowaaafnq/hero-satellite-agriculture.png",
+      "description": "Satellite view of agricultural fields with NDVI overlay"
+    },
+    {
+      "filename": "map-brazil-agriculture.jpg",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-05/n5ucm2qaafmq/map-brazil-agriculture.png",
+      "description": "Brazil map highlighting agricultural regions with heat map"
+    },
+    {
+      "filename": "dashboard-analytics-bg.jpg",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-05/n5ucsqiaafna/dashboard-analytics-bg.png",
+      "description": "Abstract dark background with data visualization elements"
+    },
+    {
+      "filename": "crop-monitoring-aerial.jpg",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-05/n5ucryyaafla/crop-monitoring-aerial.png",
+      "description": "Aerial drone view of organized crop fields"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixqvjaaagqq/landing-hero-satellite-field.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixqvjaaagqq/landing-hero-satellite-field.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixqvjaaagqq/landing-hero-satellite-field.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Wide panoramic satellite view of Brazilian agricultural fields with NDVI heat map overlay showing green, yellow and red zones, dramatic sunset lighting, cinematic aerial perspective over vast farmland with geometric crop patterns",
+      "style": "photorealistic",
+      "filename": "landing-hero-satellite-field.jpg"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixqylyaagoq/landing-feature-ai-analysis.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixqylyaagoq/landing-feature-ai-analysis.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixqylyaagoq/landing-feature-ai-analysis.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Abstract AI neural network visualization with glowing emerald green nodes connected by data streams, agricultural data icons like wheat, satellite, charts floating in dark navy background, futuristic tech aesthetic",
+      "style": "photorealistic",
+      "filename": "landing-feature-ai-analysis.jpg"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixq2iqaagnq/landing-feature-fiscal-integration.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixq2iqaagnq/landing-feature-fiscal-integration.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixq2iqaagnq/landing-feature-fiscal-integration.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Digital dashboard interface showing fiscal data analytics with Brazilian map overlay, bar charts, risk scores, and financial indicators, dark theme with emerald green and blue accents, government tech aesthetic",
+      "style": "photorealistic",
+      "filename": "landing-feature-fiscal-integration.jpg"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixqwbqaagqa/landing-feature-geospatial.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixqwbqaagqa/landing-feature-geospatial.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1190109/2026-05-10/oixqwbqaagqa/landing-feature-geospatial.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Satellite orbiting Earth focused on South America and Brazil, with glowing data streams connecting agricultural regions, cinematic space view with dark background, emerald green and blue data visualization lines",
+      "style": "photorealistic",
+      "filename": "landing-feature-geospatial.jpg"
+    }
+  ],
+  "success_count": 4,
+  "failed_count": 0,
+  "message": "Generated 4/4 images"
+}

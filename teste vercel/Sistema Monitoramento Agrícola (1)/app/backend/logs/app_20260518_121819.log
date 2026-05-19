@@ -1,0 +1,22 @@
+2026-05-18 12:18:19,542 - main - INFO - === Logging system initialized ===
+2026-05-18 12:18:19,543 - main - INFO - Log file: logs/app_20260518_121819.log
+2026-05-18 12:18:19,543 - main - INFO - Log level: INFO
+2026-05-18 12:18:19,543 - main - INFO - Timestamp: 20260518_121819
+2026-05-18 12:18:21,169 - main - INFO - Included router: routers.ai_prediction.router
+2026-05-18 12:18:21,195 - main - INFO - Included router: routers.aihub.router
+2026-05-18 12:18:21,257 - main - INFO - Included router: routers.audit_logs.router
+2026-05-18 12:18:21,275 - main - INFO - Included router: routers.auth.router
+2026-05-18 12:18:21,319 - main - INFO - Included router: routers.cities.router
+2026-05-18 12:18:21,375 - main - INFO - Included router: routers.clients.router
+2026-05-18 12:18:21,379 - main - INFO - Included router: routers.health.router
+2026-05-18 12:18:21,423 - main - INFO - Included router: routers.regions.router
+2026-05-18 12:18:21,448 - main - INFO - Included router: routers.settings.router
+2026-05-18 12:18:21,491 - main - INFO - Included router: routers.states.router
+2026-05-18 12:18:21,531 - main - INFO - Included router: routers.storage.router
+2026-05-18 12:18:21,543 - main - INFO - Included router: routers.user.router
+2026-05-18 12:18:21,592 - main - INFO - Included router: routers.user_profiles.router
+2026-05-18 12:18:21,593 - main - INFO - === Application startup initiated ===
+2026-05-18 12:18:21,594 - services.database - INFO - Ignore creating tables
+2026-05-18 12:18:21,594 - services.mock_data - INFO - Ignore initialize data
+2026-05-18 12:18:21,594 - services.auth - INFO - Ignore initialize admin
+2026-05-18 12:18:21,594 - main - INFO - === Application startup completed successfully ===

@@ -1,0 +1,65 @@
+{
+    "title": "clients",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "cnpj": {
+            "type": "string",
+            "description": "CNPJ do cliente PJ"
+        },
+        "razao_social": {
+            "type": "string",
+            "description": "Razão Social da empresa"
+        },
+        "nome_fantasia": {
+            "type": "string",
+            "description": "Nome Fantasia"
+        },
+        "plano": {
+            "type": "string",
+            "description": "Plano de assinatura: Basic, Pro, Enterprise"
+        },
+        "status": {
+            "type": "string",
+            "description": "Status: Ativo, Inativo, Suspenso"
+        },
+        "regiao": {
+            "type": "string",
+            "description": "Região do cliente"
+        },
+        "estado": {
+            "type": "string",
+            "description": "Estado do cliente"
+        },
+        "email_contato": {
+            "type": "string",
+            "description": "Email de contato"
+        },
+        "telefone": {
+            "type": "string",
+            "description": "Telefone de contato"
+        },
+        "responsavel": {
+            "type": "string",
+            "description": "Nome do responsável"
+        },
+        "area_monitorada_ha": {
+            "type": "number",
+            "description": "Área monitorada em hectares"
+        },
+        "data_contrato": {
+            "type": "string",
+            "description": "Data de início do contrato"
+        }
+    },
+    "required": [
+        "id",
+        "cnpj",
+        "razao_social",
+        "plano",
+        "status"
+    ]
+}

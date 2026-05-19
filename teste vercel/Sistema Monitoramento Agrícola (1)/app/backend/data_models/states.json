@@ -1,0 +1,28 @@
+{
+    "title": "states",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "name": {
+            "type": "string",
+            "description": "State name"
+        },
+        "uf": {
+            "type": "string",
+            "description": "State abbreviation (UF)"
+        },
+        "region_id": {
+            "type": "integer",
+            "description": "Foreign key to regions table"
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "uf",
+        "region_id"
+    ]
+}

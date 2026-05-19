@@ -1,0 +1,437 @@
+2026-05-10 09:32:22,529 - main - INFO - === Logging system initialized ===
+2026-05-10 09:32:22,529 - main - INFO - Log file: logs/app_20260510_093222.log
+2026-05-10 09:32:22,530 - main - INFO - Log level: INFO
+2026-05-10 09:32:22,530 - main - INFO - Timestamp: 20260510_093222
+2026-05-10 09:32:23,552 - main - INFO - Included router: routers.ai_prediction.router
+2026-05-10 09:32:23,578 - main - INFO - Included router: routers.aihub.router
+2026-05-10 09:32:23,599 - main - INFO - Included router: routers.auth.router
+2026-05-10 09:32:23,653 - main - INFO - Included router: routers.cities.router
+2026-05-10 09:32:23,657 - main - INFO - Included router: routers.health.router
+2026-05-10 09:32:23,698 - main - INFO - Included router: routers.regions.router
+2026-05-10 09:32:23,730 - main - INFO - Included router: routers.settings.router
+2026-05-10 09:32:23,782 - main - INFO - Included router: routers.states.router
+2026-05-10 09:32:23,821 - main - INFO - Included router: routers.storage.router
+2026-05-10 09:32:23,831 - main - INFO - Included router: routers.user.router
+2026-05-10 09:32:23,893 - main - INFO - Included router: routers.user_profiles.router
+2026-05-10 09:32:23,894 - main - INFO - === Application startup initiated ===
+2026-05-10 09:32:23,894 - services.database - INFO - Ignore creating tables
+2026-05-10 09:32:23,894 - services.mock_data - INFO - Ignore initialize data
+2026-05-10 09:32:23,895 - services.auth - INFO - Ignore initialize admin
+2026-05-10 09:32:23,895 - main - INFO - === Application startup completed successfully ===
+2026-05-10 09:32:28,811 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:32:28,812 - core.database - WARNING - Database session maker not available, attempting lazy initialization...
+2026-05-10 09:32:28,813 - core.database - WARNING - Database not initialized, attempting lazy initialization...
+2026-05-10 09:32:28,813 - core.database - INFO - Starting database initialization...
+2026-05-10 09:32:28,816 - core.config - DEBUG - Read dynamic attribute database_url from environment variable DATABASE_URL
+2026-05-10 09:32:28,817 - core.database - INFO - Normalizing database URL for async compatibility...
+2026-05-10 09:32:28,818 - core.database - INFO - Creating async database engine...
+2026-05-10 09:32:28,819 - core.database - INFO - Using QueuePool with connection pooling for non-Lambda environment
+2026-05-10 09:32:28,883 - core.database - INFO - Database engine created successfully
+2026-05-10 09:32:28,883 - core.database - INFO - Creating async session maker...
+2026-05-10 09:32:28,883 - core.database - INFO - Async session maker created successfully
+2026-05-10 09:32:28,883 - core.database - INFO - Database connection initialized successfully
+2026-05-10 09:32:28,885 - core.database - DEBUG - [DB_OP] Starting create_tables
+2026-05-10 09:32:28,885 - core.database - INFO - 🔧 Starting table creation...
+2026-05-10 09:32:28,904 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-10 09:32:30,406 - core.database - INFO - Tables initialized successfully
+2026-05-10 09:32:30,406 - core.database - DEBUG - [DB_OP] Create tables completed in 1.5216s
+2026-05-10 09:32:30,468 - core.database - INFO - Lazy database initialization completed successfully
+2026-05-10 09:32:30,468 - core.database - DEBUG - [DB_OP] Database session created successfully in 1.6574s
+2026-05-10 09:32:30,469 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:32:31,026 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:32:31,027 - core.database - DEBUG - [DB_OP] Database session cleanup after 2.2165s
+2026-05-10 09:32:48,339 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:32:48,340 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0007s
+2026-05-10 09:32:48,340 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:32:48,342 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-10 09:32:48,710 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:32:48,711 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3717s
+2026-05-10 09:33:05,349 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:33:05,349 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0005s
+2026-05-10 09:33:05,350 - routers.states - DEBUG - Querying statess: query={"region_id":4}, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:33:05,842 - routers.states - DEBUG - Found 3 statess
+2026-05-10 09:33:05,843 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4945s
+2026-05-10 09:33:40,827 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-10 09:33:40,832 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:33:40,832 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0003s
+2026-05-10 09:33:40,833 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:33:41,201 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:33:41,202 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3699s
+2026-05-10 09:33:47,261 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:33:47,261 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-10 09:33:47,848 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-10 09:33:47,849 - routers.auth - INFO - [login] Starting OIDC flow with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-10 09:33:47,849 - core.config - DEBUG - Read dynamic attribute oidc_client_id from environment variable OIDC_CLIENT_ID
+2026-05-10 09:33:47,849 - core.config - DEBUG - Read dynamic attribute oidc_scope from environment variable OIDC_SCOPE
+2026-05-10 09:33:47,849 - core.config - DEBUG - Read dynamic attribute oidc_issuer_url from environment variable OIDC_ISSUER_URL
+2026-05-10 09:33:47,849 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.5888s
+2026-05-10 09:33:59,771 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:33:59,772 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0007s
+2026-05-10 09:33:59,775 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-10 09:34:00,385 - routers.auth - INFO - [callback] Exchanging code for tokens with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-10 09:34:00,385 - core.config - DEBUG - Read dynamic attribute oidc_client_secret from environment variable OIDC_CLIENT_SECRET
+2026-05-10 09:34:02,847 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=5.0 socket_options=None
+2026-05-10 09:34:02,865 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f670837d330>
+2026-05-10 09:34:02,865 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f670834bb40> server_hostname='auth.atoms.dev' timeout=5.0
+2026-05-10 09:34:02,873 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f670837cbb0>
+2026-05-10 09:34:02,874 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-10 09:34:02,875 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-10 09:34:02,875 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-10 09:34:02,876 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-10 09:34:02,876 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-10 09:34:02,972 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 10 May 2026 16:34:02 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'x-response-time', b'0.060s'), (b'x-request-id', b'34QGLeFeqhbXp1lKNZzgo2hQI8p3Efrf7O0nebE_zdc'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9f9a595ff975e9e4-LAX')])
+2026-05-10 09:34:02,973 - httpx - INFO - HTTP Request: POST https://auth.atoms.dev/api/v1/oidc/token "HTTP/1.1 200 OK"
+2026-05-10 09:34:02,973 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-10 09:34:02,974 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-10 09:34:02,974 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-10 09:34:02,975 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-10 09:34:02,976 - httpcore.connection - DEBUG - close.started
+2026-05-10 09:34:02,976 - httpcore.connection - DEBUG - close.complete
+2026-05-10 09:34:03,000 - core.auth - INFO - Fetching JWKS from: https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json
+2026-05-10 09:34:03,001 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=60.0 socket_options=None
+2026-05-10 09:34:03,037 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f670837ce80>
+2026-05-10 09:34:03,038 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f6708caadc0> server_hostname='auth.atoms.dev' timeout=60.0
+2026-05-10 09:34:03,048 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f670837d060>
+2026-05-10 09:34:03,049 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2026-05-10 09:34:03,049 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-10 09:34:03,050 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2026-05-10 09:34:03,050 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-10 09:34:03,050 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2026-05-10 09:34:03,083 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 10 May 2026 16:34:03 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cache-control', b'public, max-age=3600'), (b'x-response-time', b'0.001s'), (b'x-request-id', b'ed57007c04a84212a40f2043d8c42d06'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9f9a59611caf78e9-LAX')])
+2026-05-10 09:34:03,084 - httpx - INFO - HTTP Request: GET https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json "HTTP/1.1 200 OK"
+2026-05-10 09:34:03,084 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2026-05-10 09:34:03,085 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-10 09:34:03,085 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-10 09:34:03,086 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-10 09:34:03,086 - core.auth - INFO - Successfully fetched JWKS with 1 keys
+2026-05-10 09:34:03,086 - httpcore.connection - DEBUG - close.started
+2026-05-10 09:34:03,087 - httpcore.connection - DEBUG - close.complete
+2026-05-10 09:34:03,460 - core.auth - INFO - ID token successfully validated for user hash: c2a2e586
+2026-05-10 09:34:03,460 - services.auth - DEBUG - [DB_OP] Starting get_or_create_user - platform_sub: 1190585
+2026-05-10 09:34:03,826 - services.auth - DEBUG - [DB_OP] User lookup completed in 0.3654s - found: True
+2026-05-10 09:34:03,826 - services.auth - DEBUG - [DB_OP] Starting user commit/refresh
+2026-05-10 09:34:04,318 - services.auth - DEBUG - [DB_OP] User commit/refresh completed in 0.4914s
+2026-05-10 09:34:04,318 - core.config - DEBUG - Read dynamic attribute jwt_expire_minutes from environment variable JWT_EXPIRE_MINUTES
+2026-05-10 09:34:04,318 - core.config - DEBUG - Read dynamic attribute jwt_secret_key from environment variable JWT_SECRET_KEY
+2026-05-10 09:34:04,319 - core.config - DEBUG - Read dynamic attribute jwt_algorithm from environment variable JWT_ALGORITHM
+2026-05-10 09:34:04,319 - core.auth - DEBUG - Authentication token created for user hash: c2a2e586
+2026-05-10 09:34:04,319 - routers.auth - INFO - [callback] OIDC callback successful, redirecting to https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/auth/callback?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMTkwNTg1IiwiZW1haWwiOiJhZG1jYW1idWlzb2x1Y29lc2VtaWFAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwibmFtZSI6ImFkbWNhbWJ1aXNvbHVjb2VzZW1pYSIsImxhc3RfbG9naW4iOiIyMDI2LTA1LTEwVDE2OjM0OjAzLjgyNjgyNSswMDowMCIsImV4cCI6MTc4MTAyMjg0NCwiaWF0IjoxNzc4NDMwODQ0LCJuYmYiOjE3Nzg0MzA4NDR9.ye7iG8JIXr2tSYVJlRUkUBHZ22xWi3eMhmHxvOu1XBg&expires_at=1781022844&token_type=Bearer
+2026-05-10 09:34:04,320 - core.database - DEBUG - [DB_OP] Database session cleanup after 4.5489s
+2026-05-10 09:34:15,485 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-10 09:34:20,153 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:34:20,159 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:34:20,159 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0003s
+2026-05-10 09:34:20,160 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:34:20,525 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:34:20,525 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3664s
+2026-05-10 09:34:24,248 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:34:24,249 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:34:24,249 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0003s
+2026-05-10 09:34:24,250 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:34:24,743 - routers.user_profiles - DEBUG - Found 0 user_profiless
+2026-05-10 09:34:24,744 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4950s
+2026-05-10 09:34:24,990 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:34:24,991 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:34:24,991 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-10 09:34:24,991 - core.database - ERROR - Database session error: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+Traceback (most recent call last):
+  File "/workspace/app/backend/core/database.py", line 553, in get_db
+    yield session
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 723, in app
+    raise validation_error
+fastapi.exceptions.RequestValidationError: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+2026-05-10 09:34:25,158 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.1675s
+2026-05-10 09:34:25,159 - core.database - ERROR - Failed to create database session: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+Traceback (most recent call last):
+  File "/workspace/app/backend/core/database.py", line 553, in get_db
+    yield session
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 723, in app
+    raise validation_error
+fastapi.exceptions.RequestValidationError: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+2026-05-10 09:34:52,265 - core.config - DEBUG - Read dynamic attribute frontend_url from environment variable FRONTEND_URL
+2026-05-10 09:35:03,680 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:35:03,681 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0006s
+2026-05-10 09:35:03,681 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:35:03,688 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-10 09:35:04,048 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:35:04,049 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3689s
+2026-05-10 09:35:21,888 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:35:21,889 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0008s
+2026-05-10 09:35:22,320 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-10 09:35:22,321 - routers.auth - INFO - [login] Starting OIDC flow with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-10 09:35:22,321 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4332s
+2026-05-10 09:35:49,867 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:35:49,867 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0007s
+2026-05-10 09:35:49,868 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-10 09:35:50,356 - routers.auth - INFO - [callback] Exchanging code for tokens with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-10 09:35:50,409 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=5.0 socket_options=None
+2026-05-10 09:35:50,454 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f67083fb910>
+2026-05-10 09:35:50,454 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f67082d6ac0> server_hostname='auth.atoms.dev' timeout=5.0
+2026-05-10 09:35:50,465 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f67083fbfd0>
+2026-05-10 09:35:50,466 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-10 09:35:50,467 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-10 09:35:50,467 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-10 09:35:50,467 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-10 09:35:50,467 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-10 09:35:50,567 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 10 May 2026 16:35:50 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'x-response-time', b'0.065s'), (b'x-request-id', b'CeSGtZR-A39UopQOVmwsGU437heXWD7_xTh3ArLVvRc'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9f9a5c006c3e2b5b-LAX')])
+2026-05-10 09:35:50,567 - httpx - INFO - HTTP Request: POST https://auth.atoms.dev/api/v1/oidc/token "HTTP/1.1 200 OK"
+2026-05-10 09:35:50,568 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-10 09:35:50,568 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-10 09:35:50,569 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-10 09:35:50,569 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-10 09:35:50,569 - httpcore.connection - DEBUG - close.started
+2026-05-10 09:35:50,570 - httpcore.connection - DEBUG - close.complete
+2026-05-10 09:35:50,609 - core.auth - INFO - Fetching JWKS from: https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json
+2026-05-10 09:35:50,610 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=60.0 socket_options=None
+2026-05-10 09:35:50,628 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f67083d8fa0>
+2026-05-10 09:35:50,629 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f67082d6b40> server_hostname='auth.atoms.dev' timeout=60.0
+2026-05-10 09:35:50,642 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f67083fb0a0>
+2026-05-10 09:35:50,644 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2026-05-10 09:35:50,645 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-10 09:35:50,645 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2026-05-10 09:35:50,645 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-10 09:35:50,645 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2026-05-10 09:35:50,692 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 10 May 2026 16:35:50 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cache-control', b'public, max-age=3600'), (b'x-response-time', b'0.001s'), (b'x-request-id', b'e5e681fdf4b4f300eba1cc6471016c4d'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9f9a5c0188b02aa3-LAX')])
+2026-05-10 09:35:50,694 - httpx - INFO - HTTP Request: GET https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json "HTTP/1.1 200 OK"
+2026-05-10 09:35:50,695 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2026-05-10 09:35:50,695 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-10 09:35:50,696 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-10 09:35:50,696 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-10 09:35:50,697 - core.auth - INFO - Successfully fetched JWKS with 1 keys
+2026-05-10 09:35:50,697 - httpcore.connection - DEBUG - close.started
+2026-05-10 09:35:50,697 - httpcore.connection - DEBUG - close.complete
+2026-05-10 09:35:50,698 - core.auth - INFO - ID token successfully validated for user hash: c2a2e586
+2026-05-10 09:35:50,698 - services.auth - DEBUG - [DB_OP] Starting get_or_create_user - platform_sub: 1190585
+2026-05-10 09:35:51,004 - services.auth - DEBUG - [DB_OP] User lookup completed in 0.3055s - found: True
+2026-05-10 09:35:51,004 - services.auth - DEBUG - [DB_OP] Starting user commit/refresh
+2026-05-10 09:35:51,493 - services.auth - DEBUG - [DB_OP] User commit/refresh completed in 0.4891s
+2026-05-10 09:35:51,494 - core.auth - DEBUG - Authentication token created for user hash: c2a2e586
+2026-05-10 09:35:51,495 - routers.auth - INFO - [callback] OIDC callback successful, redirecting to https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/auth/callback?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMTkwNTg1IiwiZW1haWwiOiJhZG1jYW1idWlzb2x1Y29lc2VtaWFAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwibmFtZSI6ImFkbWNhbWJ1aXNvbHVjb2VzZW1pYSIsImxhc3RfbG9naW4iOiIyMDI2LTA1LTEwVDE2OjM1OjUxLjAwNDY4NyswMDowMCIsImV4cCI6MTc4MTAyMjk1MSwiaWF0IjoxNzc4NDMwOTUxLCJuYmYiOjE3Nzg0MzA5NTF9.fke63cmFdd9LCwLEytYi4W3e48m2W3sbCRuDlMsd3iM&expires_at=1781022951&token_type=Bearer
+2026-05-10 09:35:51,495 - core.database - DEBUG - [DB_OP] Database session cleanup after 1.6284s
+2026-05-10 09:35:55,265 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-10 09:35:59,135 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:35:59,137 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:35:59,137 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0003s
+2026-05-10 09:35:59,138 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:35:59,502 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:35:59,503 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3661s
+2026-05-10 09:35:59,574 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:35:59,574 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:35:59,574 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-10 09:35:59,575 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:35:59,940 - routers.user_profiles - DEBUG - Found 0 user_profiless
+2026-05-10 09:35:59,941 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3671s
+2026-05-10 09:36:00,191 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:36:00,191 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:36:00,192 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0003s
+2026-05-10 09:36:00,192 - core.database - ERROR - Database session error: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+Traceback (most recent call last):
+  File "/workspace/app/backend/core/database.py", line 553, in get_db
+    yield session
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 723, in app
+    raise validation_error
+fastapi.exceptions.RequestValidationError: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+2026-05-10 09:36:00,216 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.0245s
+2026-05-10 09:36:00,216 - core.database - ERROR - Failed to create database session: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+Traceback (most recent call last):
+  File "/workspace/app/backend/core/database.py", line 553, in get_db
+    yield session
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 723, in app
+    raise validation_error
+fastapi.exceptions.RequestValidationError: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+2026-05-10 09:36:26,364 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:36:26,365 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0006s
+2026-05-10 09:36:26,365 - routers.states - DEBUG - Querying statess: query={"region_id":4}, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:36:26,733 - routers.states - DEBUG - Found 3 statess
+2026-05-10 09:36:26,733 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3692s
+2026-05-10 09:36:36,051 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:36:36,051 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-10 09:36:36,052 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:36:36,053 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:36:36,416 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:36:36,418 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3666s
+2026-05-10 09:36:36,553 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:36:36,554 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:36:36,554 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-10 09:36:36,554 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:36:36,919 - routers.user_profiles - DEBUG - Found 0 user_profiless
+2026-05-10 09:36:36,919 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3656s
+2026-05-10 09:36:37,450 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:36:37,450 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:36:37,451 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0003s
+2026-05-10 09:36:37,451 - core.database - ERROR - Database session error: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+Traceback (most recent call last):
+  File "/workspace/app/backend/core/database.py", line 553, in get_db
+    yield session
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 723, in app
+    raise validation_error
+fastapi.exceptions.RequestValidationError: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+2026-05-10 09:36:37,467 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.0162s
+2026-05-10 09:36:37,467 - core.database - ERROR - Failed to create database session: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+Traceback (most recent call last):
+  File "/workspace/app/backend/core/database.py", line 553, in get_db
+    yield session
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 723, in app
+    raise validation_error
+fastapi.exceptions.RequestValidationError: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+2026-05-10 09:37:31,034 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:37:31,035 - core.config - DEBUG - Read dynamic attribute app_ai_base_url from environment variable APP_AI_BASE_URL
+2026-05-10 09:37:31,035 - core.config - DEBUG - Read dynamic attribute app_ai_key from environment variable APP_AI_KEY
+2026-05-10 09:37:46,118 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-d37225a5-14c8-46bc-bbee-09437a887cb3', 'content': None, 'json_data': {'messages': [{'role': 'system', 'content': 'Você é um modelo de IA especializado em análise de produção agrícola brasileira. Sempre responda em JSON válido.'}, {'role': 'user', 'content': 'Você é um especialista em análise agrícola do Brasil. Analise os seguintes dados de produção e forneça uma avaliação técnica.\n\nDados de entrada:\n- NDVI: 0.72\n- Precipitação: 145.0 mm\n- Temperatura: 26.5 °C\n- Umidade do Solo: 38.0%\n- Área: 1200.0 hectares\n- Produção Declarada: 4800.0 toneladas\n- Cultura: Soja\n- Município: Cambuí\n- Estado: MG\n\nCom base nesses parâmetros, calcule:\n1. Produção estimada (em toneladas) baseada no NDVI, área e condições climáticas\n2. Anomaly Score (0-100): quanto maior, mais discrepância entre declarado e estimado\n3. Nível de Risco: ALTO (score > 70), MÉDIO (score 40-70), BAIXO (score < 40)\n4. Confiança do modelo (85-97%)\n\nIMPORTANTE: Responda APENAS no formato JSON abaixo, sem texto adicional:\n{"producao_estimada": <numero>, "anomaly_score": <numero>, "risk_level": "<ALTO|MÉDIO|BAIXO>", "confianca": <numero>, "analise": "<texto breve com 2-3 frases explicando a análise>"}'}], 'model': 'deepseek-v3.2', 'max_tokens': 4096, 'stream': False, 'temperature': 0.7}}
+2026-05-10 09:37:46,119 - openai._base_client - DEBUG - Sending HTTP Request: POST https://llmapi-api.deepwisdom.ai/v1/chat/completions
+2026-05-10 09:37:46,120 - httpcore.connection - DEBUG - connect_tcp.started host='llmapi-api.deepwisdom.ai' port=443 local_address=None timeout=5.0 socket_options=None
+2026-05-10 09:37:46,138 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f67024c5120>
+2026-05-10 09:37:46,139 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f67082d6940> server_hostname='llmapi-api.deepwisdom.ai' timeout=5.0
+2026-05-10 09:37:46,152 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f67024c57b0>
+2026-05-10 09:37:46,153 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-10 09:37:46,154 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-10 09:37:46,154 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-10 09:37:46,155 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-10 09:37:46,155 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-10 09:37:48,548 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 10 May 2026 16:37:48 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Access-Control-Allow-Credentials', b'true'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Vary', b'origin, access-control-request-method, access-control-request-headers'), (b'Via', b'1.1 1ffd5cdb315141702d5377ba909be92a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Id', b'gXMIZphdOSqDTIyCe1_9ZqC8kbgZIZM8x6UOV43bgy_l2ZbqVAyoQg=='), (b'X-Amz-Cf-Pop', b'LAX50-P1'), (b'X-Cache', b'Miss from cloudfront'), (b'X-Content-Type-Options', b'nosniff'), (b'X-Ds-Trace-Id', b'c45704db8eb4b871f1946b0f866d27e3'), (b'X-Oneapi-Request-Id', b'2026051009374617812947507045163'), (b'X-Oneapi-Trans-Id', b'32135526085558683'), (b'X-Request-Id', b'2026051009374617812947507045163'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9f9a5ed37d86a708-LAX')])
+2026-05-10 09:37:48,549 - httpx - INFO - HTTP Request: POST https://llmapi-api.deepwisdom.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-10 09:37:48,549 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-10 09:37:48,549 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-10 09:37:48,549 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-10 09:37:48,550 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-10 09:37:48,550 - openai._base_client - DEBUG - HTTP Response: POST https://llmapi-api.deepwisdom.ai/v1/chat/completions "200 OK" Headers({'date': 'Sun, 10 May 2026 16:37:48 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'via': '1.1 1ffd5cdb315141702d5377ba909be92a.cloudfront.net (CloudFront)', 'x-amz-cf-id': 'gXMIZphdOSqDTIyCe1_9ZqC8kbgZIZM8x6UOV43bgy_l2ZbqVAyoQg==', 'x-amz-cf-pop': 'LAX50-P1', 'x-cache': 'Miss from cloudfront', 'x-content-type-options': 'nosniff', 'x-ds-trace-id': 'c45704db8eb4b871f1946b0f866d27e3', 'x-oneapi-request-id': '2026051009374617812947507045163', 'x-oneapi-trans-id': '32135526085558683', 'x-request-id': '2026051009374617812947507045163', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'server': 'cloudflare', 'cf-ray': '9f9a5ed37d86a708-LAX'})
+2026-05-10 09:37:48,550 - openai._base_client - DEBUG - request_id: 2026051009374617812947507045163
+2026-05-10 09:38:20,071 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:38:20,072 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0007s
+2026-05-10 09:38:20,072 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:38:20,076 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:38:20,555 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:38:20,555 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:38:20,555 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-10 09:38:20,556 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:38:20,561 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:38:20,562 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4911s
+2026-05-10 09:38:21,275 - routers.user_profiles - DEBUG - Found 0 user_profiless
+2026-05-10 09:38:21,276 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.7208s
+2026-05-10 09:38:21,633 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:38:21,634 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:38:21,634 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0003s
+2026-05-10 09:38:21,634 - core.database - ERROR - Database session error: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+Traceback (most recent call last):
+  File "/workspace/app/backend/core/database.py", line 553, in get_db
+    yield session
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 723, in app
+    raise validation_error
+fastapi.exceptions.RequestValidationError: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+2026-05-10 09:38:21,650 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.0157s
+2026-05-10 09:38:21,650 - core.database - ERROR - Failed to create database session: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+Traceback (most recent call last):
+  File "/workspace/app/backend/core/database.py", line 553, in get_db
+    yield session
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/data/chats/4f214db9a34f459aa35e1deab2f63010/.cache/python/lib/python3.10/site-packages/fastapi/routing.py", line 723, in app
+    raise validation_error
+fastapi.exceptions.RequestValidationError: 1 validation error:
+  {'type': 'missing', 'loc': ('body', 'full_name'), 'msg': 'Field required', 'input': {'role': 'FISCAL', 'display_name': ''}}
+
+  File "/workspace/app/backend/routers/user_profiles.py", line 185, in create_user_profiles
+    POST /api/v1/entities/user_profiles
+2026-05-10 09:39:34,814 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:39:34,814 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0005s
+2026-05-10 09:39:34,815 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:39:34,816 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-10 09:39:35,180 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:39:35,181 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3678s
+2026-05-10 09:39:40,929 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:39:40,930 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0005s
+2026-05-10 09:39:40,930 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:39:40,936 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:39:41,481 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:39:41,483 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.5535s
+2026-05-10 09:39:41,531 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:39:41,531 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:39:41,532 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0012s
+2026-05-10 09:39:41,533 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:39:41,899 - routers.user_profiles - DEBUG - Found 0 user_profiless
+2026-05-10 09:39:41,900 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3687s
+2026-05-10 09:39:42,240 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-10 09:39:42,240 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:39:42,240 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-10 09:39:42,241 - routers.user_profiles - DEBUG - Creating new user_profiles with data: role='FISCAL' full_name='admcambuisolucoesemia' department=None region=None
+2026-05-10 09:39:43,058 - services.user_profiles - INFO - Created user_profiles with id: 1
+2026-05-10 09:39:43,058 - routers.user_profiles - INFO - User_profiles created successfully with id: 1
+2026-05-10 09:39:43,059 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.8190s
+2026-05-10 09:40:13,904 - services.database - DEBUG - [DB_OP] Starting database close
+2026-05-10 09:40:14,033 - core.database - INFO - Database connection closed and engine disposed
+2026-05-10 09:40:14,034 - services.database - INFO - Database connections closed
+2026-05-10 09:40:14,034 - services.database - DEBUG - [DB_OP] Database close completed in 0.1299s

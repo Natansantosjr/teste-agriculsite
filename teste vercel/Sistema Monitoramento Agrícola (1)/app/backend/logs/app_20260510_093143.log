@@ -1,0 +1,46 @@
+2026-05-10 09:31:43,166 - main - INFO - === Logging system initialized ===
+2026-05-10 09:31:43,167 - main - INFO - Log file: logs/app_20260510_093143.log
+2026-05-10 09:31:43,167 - main - INFO - Log level: INFO
+2026-05-10 09:31:43,167 - main - INFO - Timestamp: 20260510_093143
+2026-05-10 09:31:44,359 - main - INFO - Included router: routers.ai_prediction.router
+2026-05-10 09:31:44,394 - main - INFO - Included router: routers.aihub.router
+2026-05-10 09:31:44,410 - main - INFO - Included router: routers.auth.router
+2026-05-10 09:31:44,465 - main - INFO - Included router: routers.cities.router
+2026-05-10 09:31:44,468 - main - INFO - Included router: routers.health.router
+2026-05-10 09:31:44,520 - main - INFO - Included router: routers.regions.router
+2026-05-10 09:31:44,556 - main - INFO - Included router: routers.settings.router
+2026-05-10 09:31:44,615 - main - INFO - Included router: routers.states.router
+2026-05-10 09:31:44,689 - main - INFO - Included router: routers.storage.router
+2026-05-10 09:31:44,702 - main - INFO - Included router: routers.user.router
+2026-05-10 09:31:44,766 - main - INFO - Included router: routers.user_profiles.router
+2026-05-10 09:31:44,768 - main - INFO - === Application startup initiated ===
+2026-05-10 09:31:44,768 - services.database - INFO - Ignore creating tables
+2026-05-10 09:31:44,769 - services.mock_data - INFO - Ignore initialize data
+2026-05-10 09:31:44,769 - services.auth - INFO - Ignore initialize admin
+2026-05-10 09:31:44,770 - main - INFO - === Application startup completed successfully ===
+2026-05-10 09:31:52,599 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-10 09:31:52,599 - core.database - WARNING - Database session maker not available, attempting lazy initialization...
+2026-05-10 09:31:52,600 - core.database - WARNING - Database not initialized, attempting lazy initialization...
+2026-05-10 09:31:52,600 - core.database - INFO - Starting database initialization...
+2026-05-10 09:31:52,600 - core.config - DEBUG - Read dynamic attribute database_url from environment variable DATABASE_URL
+2026-05-10 09:31:52,600 - core.database - INFO - Normalizing database URL for async compatibility...
+2026-05-10 09:31:52,601 - core.database - INFO - Creating async database engine...
+2026-05-10 09:31:52,601 - core.database - INFO - Using QueuePool with connection pooling for non-Lambda environment
+2026-05-10 09:31:52,659 - core.database - INFO - Database engine created successfully
+2026-05-10 09:31:52,660 - core.database - INFO - Creating async session maker...
+2026-05-10 09:31:52,660 - core.database - INFO - Async session maker created successfully
+2026-05-10 09:31:52,660 - core.database - INFO - Database connection initialized successfully
+2026-05-10 09:31:52,660 - core.database - DEBUG - [DB_OP] Starting create_tables
+2026-05-10 09:31:52,660 - core.database - INFO - 🔧 Starting table creation...
+2026-05-10 09:31:52,667 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-10 09:31:54,324 - core.database - INFO - Tables initialized successfully
+2026-05-10 09:31:54,324 - core.database - DEBUG - [DB_OP] Create tables completed in 1.6641s
+2026-05-10 09:31:54,391 - core.database - INFO - Lazy database initialization completed successfully
+2026-05-10 09:31:54,393 - core.database - DEBUG - [DB_OP] Database session created successfully in 1.7941s
+2026-05-10 09:31:54,393 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-10 09:31:55,000 - routers.regions - DEBUG - Found 5 regionss
+2026-05-10 09:31:55,001 - core.database - DEBUG - [DB_OP] Database session cleanup after 2.4023s
+2026-05-10 09:32:10,341 - services.database - DEBUG - [DB_OP] Starting database close
+2026-05-10 09:32:10,410 - core.database - INFO - Database connection closed and engine disposed
+2026-05-10 09:32:10,411 - services.database - INFO - Database connections closed
+2026-05-10 09:32:10,411 - services.database - DEBUG - [DB_OP] Database close completed in 0.0695s

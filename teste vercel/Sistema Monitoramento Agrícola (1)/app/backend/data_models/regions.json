@@ -1,0 +1,23 @@
+{
+    "title": "regions",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "name": {
+            "type": "string",
+            "description": "Region name"
+        },
+        "code": {
+            "type": "string",
+            "description": "Region code"
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "code"
+    ]
+}

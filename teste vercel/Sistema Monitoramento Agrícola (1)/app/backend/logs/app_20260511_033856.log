@@ -1,0 +1,26 @@
+2026-05-11 03:38:56,207 - main - INFO - === Logging system initialized ===
+2026-05-11 03:38:56,208 - main - INFO - Log file: logs/app_20260511_033856.log
+2026-05-11 03:38:56,208 - main - INFO - Log level: INFO
+2026-05-11 03:38:56,208 - main - INFO - Timestamp: 20260511_033856
+2026-05-11 03:38:56,998 - main - INFO - Included router: routers.ai_prediction.router
+2026-05-11 03:38:57,049 - main - INFO - Included router: routers.aihub.router
+2026-05-11 03:38:57,102 - main - INFO - Included router: routers.audit_logs.router
+2026-05-11 03:38:57,115 - main - INFO - Included router: routers.auth.router
+2026-05-11 03:38:57,154 - main - INFO - Included router: routers.cities.router
+2026-05-11 03:38:57,200 - main - INFO - Included router: routers.clients.router
+2026-05-11 03:38:57,205 - main - INFO - Included router: routers.health.router
+2026-05-11 03:38:57,244 - main - INFO - Included router: routers.regions.router
+2026-05-11 03:38:57,267 - main - INFO - Included router: routers.settings.router
+2026-05-11 03:38:57,310 - main - INFO - Included router: routers.states.router
+2026-05-11 03:38:57,349 - main - INFO - Included router: routers.storage.router
+2026-05-11 03:38:57,362 - main - INFO - Included router: routers.user.router
+2026-05-11 03:38:57,411 - main - INFO - Included router: routers.user_profiles.router
+2026-05-11 03:38:57,413 - main - INFO - === Application startup initiated ===
+2026-05-11 03:38:57,413 - services.database - INFO - Ignore creating tables
+2026-05-11 03:38:57,413 - services.mock_data - INFO - Ignore initialize data
+2026-05-11 03:38:57,413 - services.auth - INFO - Ignore initialize admin
+2026-05-11 03:38:57,414 - main - INFO - === Application startup completed successfully ===
+2026-05-11 03:39:02,863 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-11 03:39:14,491 - services.database - DEBUG - [DB_OP] Starting database close
+2026-05-11 03:39:14,492 - services.database - INFO - Database connections closed
+2026-05-11 03:39:14,492 - services.database - DEBUG - [DB_OP] Database close completed in 0.0008s

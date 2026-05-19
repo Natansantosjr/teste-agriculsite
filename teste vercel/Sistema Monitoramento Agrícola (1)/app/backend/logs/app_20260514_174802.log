@@ -1,0 +1,173 @@
+2026-05-14 17:48:02,460 - main - INFO - === Logging system initialized ===
+2026-05-14 17:48:02,460 - main - INFO - Log file: logs/app_20260514_174802.log
+2026-05-14 17:48:02,460 - main - INFO - Log level: INFO
+2026-05-14 17:48:02,460 - main - INFO - Timestamp: 20260514_174802
+2026-05-14 17:48:04,785 - main - INFO - Included router: routers.ai_prediction.router
+2026-05-14 17:48:04,814 - main - INFO - Included router: routers.aihub.router
+2026-05-14 17:48:04,875 - main - INFO - Included router: routers.audit_logs.router
+2026-05-14 17:48:04,894 - main - INFO - Included router: routers.auth.router
+2026-05-14 17:48:04,935 - main - INFO - Included router: routers.cities.router
+2026-05-14 17:48:04,996 - main - INFO - Included router: routers.clients.router
+2026-05-14 17:48:05,000 - main - INFO - Included router: routers.health.router
+2026-05-14 17:48:05,078 - main - INFO - Included router: routers.regions.router
+2026-05-14 17:48:05,104 - main - INFO - Included router: routers.settings.router
+2026-05-14 17:48:05,150 - main - INFO - Included router: routers.states.router
+2026-05-14 17:48:05,192 - main - INFO - Included router: routers.storage.router
+2026-05-14 17:48:05,203 - main - INFO - Included router: routers.user.router
+2026-05-14 17:48:05,254 - main - INFO - Included router: routers.user_profiles.router
+2026-05-14 17:48:05,257 - main - INFO - === Application startup initiated ===
+2026-05-14 17:48:05,257 - services.database - INFO - Ignore creating tables
+2026-05-14 17:48:05,257 - services.mock_data - INFO - Ignore initialize data
+2026-05-14 17:48:05,258 - services.auth - INFO - Ignore initialize admin
+2026-05-14 17:48:05,258 - main - INFO - === Application startup completed successfully ===
+2026-05-14 17:49:19,065 - core.config - DEBUG - Read dynamic attribute jwt_secret_key from environment variable JWT_SECRET_KEY
+2026-05-14 17:49:19,065 - core.config - DEBUG - Read dynamic attribute jwt_algorithm from environment variable JWT_ALGORITHM
+2026-05-14 17:49:19,086 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-14 17:49:19,340 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-14 17:49:19,341 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-14 17:49:19,341 - core.database - WARNING - Database session maker not available, attempting lazy initialization...
+2026-05-14 17:49:19,341 - core.database - WARNING - Database not initialized, attempting lazy initialization...
+2026-05-14 17:49:19,341 - core.database - INFO - Starting database initialization...
+2026-05-14 17:49:19,341 - core.config - DEBUG - Read dynamic attribute database_url from environment variable DATABASE_URL
+2026-05-14 17:49:19,341 - core.database - INFO - Normalizing database URL for async compatibility...
+2026-05-14 17:49:19,342 - core.database - INFO - Creating async database engine...
+2026-05-14 17:49:19,342 - core.database - INFO - Using QueuePool with connection pooling for non-Lambda environment
+2026-05-14 17:49:19,396 - core.database - INFO - Database engine created successfully
+2026-05-14 17:49:19,396 - core.database - INFO - Creating async session maker...
+2026-05-14 17:49:19,396 - core.database - INFO - Async session maker created successfully
+2026-05-14 17:49:19,396 - core.database - INFO - Database connection initialized successfully
+2026-05-14 17:49:19,396 - core.database - DEBUG - [DB_OP] Starting create_tables
+2026-05-14 17:49:19,396 - core.database - INFO - 🔧 Starting table creation...
+2026-05-14 17:49:21,169 - core.database - INFO - Tables initialized successfully
+2026-05-14 17:49:21,169 - core.database - DEBUG - [DB_OP] Create tables completed in 1.7731s
+2026-05-14 17:49:21,236 - core.database - INFO - Lazy database initialization completed successfully
+2026-05-14 17:49:21,237 - core.database - DEBUG - [DB_OP] Database session created successfully in 1.8960s
+2026-05-14 17:49:21,237 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-14 17:49:21,851 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-14 17:49:21,852 - core.database - DEBUG - [DB_OP] Database session cleanup after 2.5109s
+2026-05-14 17:49:22,757 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-14 17:49:22,757 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0005s
+2026-05-14 17:49:22,758 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-14 17:49:23,290 - routers.regions - DEBUG - Found 5 regionss
+2026-05-14 17:49:23,291 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.5344s
+2026-05-14 17:57:50,020 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-14 17:57:50,259 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-14 17:57:50,259 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-14 17:57:50,260 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0008s
+2026-05-14 17:57:50,261 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-14 17:57:51,555 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-14 17:57:51,555 - core.database - DEBUG - [DB_OP] Database session cleanup after 1.2961s
+2026-05-14 17:57:51,833 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-14 17:57:51,834 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0007s
+2026-05-14 17:57:51,834 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-14 17:57:52,386 - routers.regions - DEBUG - Found 5 regionss
+2026-05-14 17:57:52,387 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.5537s
+2026-05-14 17:58:12,298 - core.config - DEBUG - Read dynamic attribute frontend_url from environment variable FRONTEND_URL
+2026-05-14 17:58:12,299 - core.config - DEBUG - Read dynamic attribute oidc_issuer_url from environment variable OIDC_ISSUER_URL
+2026-05-14 17:58:14,823 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-14 17:58:18,094 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-14 17:58:18,095 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-14 17:58:18,668 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-14 17:58:18,669 - routers.auth - INFO - [login] Starting OIDC flow with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-14 17:58:18,669 - core.config - DEBUG - Read dynamic attribute oidc_client_id from environment variable OIDC_CLIENT_ID
+2026-05-14 17:58:18,669 - core.config - DEBUG - Read dynamic attribute oidc_scope from environment variable OIDC_SCOPE
+2026-05-14 17:58:18,670 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.5752s
+2026-05-14 17:58:27,103 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-14 17:58:27,103 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0007s
+2026-05-14 17:58:27,104 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-14 17:58:27,713 - routers.auth - INFO - [callback] Exchanging code for tokens with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-14 17:58:27,714 - core.config - DEBUG - Read dynamic attribute oidc_client_secret from environment variable OIDC_CLIENT_SECRET
+2026-05-14 17:58:27,839 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=5.0 socket_options=None
+2026-05-14 17:58:27,859 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7fc2744ab8b0>
+2026-05-14 17:58:27,859 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7fc2743ff9c0> server_hostname='auth.atoms.dev' timeout=5.0
+2026-05-14 17:58:27,872 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7fc2744ab610>
+2026-05-14 17:58:27,873 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-14 17:58:27,874 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-14 17:58:27,874 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-14 17:58:27,874 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-14 17:58:27,874 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-14 17:58:27,970 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 15 May 2026 00:58:27 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'x-response-time', b'0.058s'), (b'x-request-id', b'WaoPc-p-yRD0QuKmj2F7dqVKTlKB6e-AuzuCZpQUtHc'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9fbe31c44ad05397-LAX')])
+2026-05-14 17:58:27,971 - httpx - INFO - HTTP Request: POST https://auth.atoms.dev/api/v1/oidc/token "HTTP/1.1 200 OK"
+2026-05-14 17:58:27,971 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-14 17:58:27,973 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-14 17:58:27,973 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-14 17:58:27,973 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-14 17:58:27,974 - httpcore.connection - DEBUG - close.started
+2026-05-14 17:58:27,974 - httpcore.connection - DEBUG - close.complete
+2026-05-14 17:58:28,004 - core.auth - INFO - Fetching JWKS from: https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json
+2026-05-14 17:58:28,005 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=60.0 socket_options=None
+2026-05-14 17:58:28,022 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7fc2742f52d0>
+2026-05-14 17:58:28,022 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7fc2743ffbc0> server_hostname='auth.atoms.dev' timeout=60.0
+2026-05-14 17:58:28,038 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7fc2742f5060>
+2026-05-14 17:58:28,039 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2026-05-14 17:58:28,040 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-14 17:58:28,040 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2026-05-14 17:58:28,040 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-14 17:58:28,041 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2026-05-14 17:58:28,080 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 15 May 2026 00:58:28 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cache-control', b'public, max-age=3600'), (b'x-response-time', b'0.001s'), (b'x-request-id', b'a1e11a7b1e075a21c4496ed9609cf2f4'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9fbe31c54b96ed79-LAX')])
+2026-05-14 17:58:28,081 - httpx - INFO - HTTP Request: GET https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json "HTTP/1.1 200 OK"
+2026-05-14 17:58:28,082 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2026-05-14 17:58:28,083 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-14 17:58:28,083 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-14 17:58:28,083 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-14 17:58:28,084 - core.auth - INFO - Successfully fetched JWKS with 1 keys
+2026-05-14 17:58:28,084 - httpcore.connection - DEBUG - close.started
+2026-05-14 17:58:28,087 - httpcore.connection - DEBUG - close.complete
+2026-05-14 17:58:28,099 - core.auth - INFO - ID token successfully validated for user hash: c2a2e586
+2026-05-14 17:58:28,100 - services.auth - DEBUG - [DB_OP] Starting get_or_create_user - platform_sub: 1190585
+2026-05-14 17:58:28,470 - services.auth - DEBUG - [DB_OP] User lookup completed in 0.3697s - found: True
+2026-05-14 17:58:28,470 - services.auth - DEBUG - [DB_OP] Starting user commit/refresh
+2026-05-14 17:58:28,958 - services.auth - DEBUG - [DB_OP] User commit/refresh completed in 0.4875s
+2026-05-14 17:58:28,958 - core.config - DEBUG - Read dynamic attribute jwt_expire_minutes from environment variable JWT_EXPIRE_MINUTES
+2026-05-14 17:58:28,959 - core.auth - DEBUG - Authentication token created for user hash: c2a2e586
+2026-05-14 17:58:28,959 - routers.auth - INFO - [callback] OIDC callback successful, redirecting to https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/auth/callback?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMTkwNTg1IiwiZW1haWwiOiJhZG1jYW1idWlzb2x1Y29lc2VtaWFAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwibmFtZSI6ImFkbWNhbWJ1aXNvbHVjb2VzZW1pYSIsImxhc3RfbG9naW4iOiIyMDI2LTA1LTE1VDAwOjU4OjI4LjQ3MDg4MCswMDowMCIsImV4cCI6MTc4MTM5ODcwOCwiaWF0IjoxNzc4ODA2NzA4LCJuYmYiOjE3Nzg4MDY3MDh9.RPr5v7foF6a_1YWrnrSg-5fk1671T0UxVgwif1jqzT8&expires_at=1781398708&token_type=Bearer
+2026-05-14 17:58:28,961 - core.database - DEBUG - [DB_OP] Database session cleanup after 1.8581s
+2026-05-14 17:58:32,111 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-14 17:58:34,175 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-14 17:58:34,413 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-14 17:58:34,413 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-14 17:58:34,414 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-14 17:58:34,414 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-14 17:58:34,777 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-14 17:58:34,778 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3645s
+2026-05-14 17:58:35,033 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-14 17:58:35,033 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-14 17:58:35,034 - routers.regions - DEBUG - Querying regionss: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-14 17:58:35,398 - routers.regions - DEBUG - Found 5 regionss
+2026-05-14 17:58:35,399 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3660s
+2026-05-14 17:58:51,327 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-14 17:58:51,328 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-14 17:58:51,328 - routers.states - DEBUG - Querying statess: query={"region_id":3}, sort=None, skip=0, limit=20, fields=None
+2026-05-14 17:58:51,820 - routers.states - DEBUG - Found 3 statess
+2026-05-14 17:58:51,821 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4938s
+2026-05-14 17:58:54,992 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-14 17:58:54,992 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0005s
+2026-05-14 17:58:54,993 - routers.cities - DEBUG - Querying citiess: query={"state_id":7}, sort=None, skip=0, limit=20, fields=None
+2026-05-14 17:58:55,484 - routers.cities - DEBUG - Found 2 citiess
+2026-05-14 17:58:55,484 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4925s
+2026-05-14 17:59:19,463 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-14 17:59:19,463 - core.config - DEBUG - Read dynamic attribute app_ai_base_url from environment variable APP_AI_BASE_URL
+2026-05-14 17:59:19,464 - core.config - DEBUG - Read dynamic attribute app_ai_key from environment variable APP_AI_KEY
+2026-05-14 17:59:20,167 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-71053938-1460-4098-bb20-3fc6998ef18e', 'content': None, 'json_data': {'messages': [{'role': 'system', 'content': 'Você é um modelo de IA especializado em análise de produção agrícola brasileira. Sempre responda em JSON válido.'}, {'role': 'user', 'content': 'Você é um especialista em análise agrícola do Brasil. Analise os seguintes dados de produção e forneça uma avaliação técnica.\n\nDados de entrada:\n- NDVI: 0.72\n- Precipitação: 145.0 mm\n- Temperatura: 26.5 °C\n- Umidade do Solo: 38.0%\n- Área: 1200.0 hectares\n- Produção Declarada: 4800.0 toneladas\n- Cultura: Soja\n- Município: Cambuí\n- Estado: MG\n\nCom base nesses parâmetros, calcule:\n1. Produção estimada (em toneladas) baseada no NDVI, área e condições climáticas\n2. Anomaly Score (0-100): quanto maior, mais discrepância entre declarado e estimado\n3. Nível de Risco: ALTO (score > 70), MÉDIO (score 40-70), BAIXO (score < 40)\n4. Confiança do modelo (85-97%)\n\nIMPORTANTE: Responda APENAS no formato JSON abaixo, sem texto adicional:\n{"producao_estimada": <numero>, "anomaly_score": <numero>, "risk_level": "<ALTO|MÉDIO|BAIXO>", "confianca": <numero>, "analise": "<texto breve com 2-3 frases explicando a análise>"}'}], 'model': 'deepseek-v3.2', 'max_tokens': 4096, 'stream': False, 'temperature': 0.7}}
+2026-05-14 17:59:20,168 - openai._base_client - DEBUG - Sending HTTP Request: POST https://llmapi-api.deepwisdom.ai/v1/chat/completions
+2026-05-14 17:59:20,168 - httpcore.connection - DEBUG - connect_tcp.started host='llmapi-api.deepwisdom.ai' port=443 local_address=None timeout=5.0 socket_options=None
+2026-05-14 17:59:20,306 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7fc26f53ae60>
+2026-05-14 17:59:20,306 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7fc274350840> server_hostname='llmapi-api.deepwisdom.ai' timeout=5.0
+2026-05-14 17:59:20,420 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7fc26f53a7d0>
+2026-05-14 17:59:20,421 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-14 17:59:20,422 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-14 17:59:20,422 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-14 17:59:20,423 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-14 17:59:20,424 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-14 17:59:22,202 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 15 May 2026 00:59:22 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Access-Control-Allow-Credentials', b'true'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Vary', b'origin, access-control-request-method, access-control-request-headers'), (b'Via', b'1.1 93861fd9f578d34ecf5dd630e7a5d840.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Id', b'QYrjAzSvw3T63Zgw2FmEemWAcBQAXjaxWR-g23k-2VgJpi1GpPd7sA=='), (b'X-Amz-Cf-Pop', b'LAX53-P5'), (b'X-Cache', b'Miss from cloudfront'), (b'X-Content-Type-Options', b'nosniff'), (b'X-Ds-Trace-Id', b'a2339eb717a4848899eeb842e95399fa'), (b'X-Oneapi-Request-Id', b'2026051417592053922051998695682'), (b'X-Oneapi-Trans-Id', b'32765836645106078'), (b'X-Request-Id', b'2026051417592053922051998695682'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9fbe330d2d7d2aef-LAX')])
+2026-05-14 17:59:22,203 - httpx - INFO - HTTP Request: POST https://llmapi-api.deepwisdom.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-14 17:59:22,203 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-14 17:59:22,204 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-14 17:59:22,204 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-14 17:59:22,205 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-14 17:59:22,206 - openai._base_client - DEBUG - HTTP Response: POST https://llmapi-api.deepwisdom.ai/v1/chat/completions "200 OK" Headers({'date': 'Fri, 15 May 2026 00:59:22 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'via': '1.1 93861fd9f578d34ecf5dd630e7a5d840.cloudfront.net (CloudFront)', 'x-amz-cf-id': 'QYrjAzSvw3T63Zgw2FmEemWAcBQAXjaxWR-g23k-2VgJpi1GpPd7sA==', 'x-amz-cf-pop': 'LAX53-P5', 'x-cache': 'Miss from cloudfront', 'x-content-type-options': 'nosniff', 'x-ds-trace-id': 'a2339eb717a4848899eeb842e95399fa', 'x-oneapi-request-id': '2026051417592053922051998695682', 'x-oneapi-trans-id': '32765836645106078', 'x-request-id': '2026051417592053922051998695682', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'server': 'cloudflare', 'cf-ray': '9fbe330d2d7d2aef-LAX'})
+2026-05-14 17:59:22,206 - openai._base_client - DEBUG - request_id: 2026051417592053922051998695682
+2026-05-14 18:19:18,744 - services.database - DEBUG - [DB_OP] Starting database close
+2026-05-14 18:19:18,745 - core.database - INFO - Database connection closed and engine disposed
+2026-05-14 18:19:18,745 - services.database - INFO - Database connections closed
+2026-05-14 18:19:18,745 - services.database - DEBUG - [DB_OP] Database close completed in 0.0012s

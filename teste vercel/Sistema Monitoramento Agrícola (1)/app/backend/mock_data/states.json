@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Amazonas",
+        "uf": "AM",
+        "region_id": 1
+    },
+    {
+        "name": "Pará",
+        "uf": "PA",
+        "region_id": 1
+    },
+    {
+        "name": "Bahia",
+        "uf": "BA",
+        "region_id": 2
+    },
+    {
+        "name": "Pernambuco",
+        "uf": "PE",
+        "region_id": 2
+    },
+    {
+        "name": "Ceará",
+        "uf": "CE",
+        "region_id": 2
+    },
+    {
+        "name": "Goiás",
+        "uf": "GO",
+        "region_id": 3
+    },
+    {
+        "name": "Mato Grosso",
+        "uf": "MT",
+        "region_id": 3
+    },
+    {
+        "name": "Mato Grosso do Sul",
+        "uf": "MS",
+        "region_id": 3
+    },
+    {
+        "name": "São Paulo",
+        "uf": "SP",
+        "region_id": 4
+    },
+    {
+        "name": "Minas Gerais",
+        "uf": "MG",
+        "region_id": 4
+    },
+    {
+        "name": "Rio de Janeiro",
+        "uf": "RJ",
+        "region_id": 4
+    },
+    {
+        "name": "Paraná",
+        "uf": "PR",
+        "region_id": 5
+    },
+    {
+        "name": "Rio Grande do Sul",
+        "uf": "RS",
+        "region_id": 5
+    },
+    {
+        "name": "Santa Catarina",
+        "uf": "SC",
+        "region_id": 5
+    }
+]

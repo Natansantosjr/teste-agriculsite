@@ -1,0 +1,48 @@
+{
+    "title": "audit_logs",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "user_id": {
+            "type": "string",
+            "description": "User ID who performed the action"
+        },
+        "action": {
+            "type": "string",
+            "description": "Action performed: LOGIN, LOGOUT, VIEW, CREATE, UPDATE, DELETE, EXPORT"
+        },
+        "resource": {
+            "type": "string",
+            "description": "Resource affected: dashboard, alerts, prediction, clients, etc."
+        },
+        "details": {
+            "type": "string",
+            "description": "Additional details about the action"
+        },
+        "ip_address": {
+            "type": "string",
+            "description": "IP address of the user"
+        },
+        "user_agent": {
+            "type": "string",
+            "description": "Browser user agent string"
+        },
+        "status_code": {
+            "type": "integer",
+            "description": "HTTP status code of the action"
+        },
+        "risk_level": {
+            "type": "string",
+            "description": "Risk level: LOW, MEDIUM, HIGH"
+        }
+    },
+    "required": [
+        "id",
+        "user_id",
+        "action",
+        "resource"
+    ]
+}

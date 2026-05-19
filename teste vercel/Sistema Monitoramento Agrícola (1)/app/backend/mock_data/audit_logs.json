@@ -1,0 +1,122 @@
+[
+    {
+        "action": "LOGIN",
+        "resource": "auth",
+        "details": "Login bem-sucedido via OAuth2",
+        "ip_address": "189.45.123.67",
+        "user_agent": "Mozilla/5.0 Chrome/125",
+        "status_code": 200,
+        "risk_level": "LOW",
+        "user_id": "1190585"
+    },
+    {
+        "action": "VIEW",
+        "resource": "dashboard",
+        "details": "Acesso ao painel principal",
+        "ip_address": "189.45.123.67",
+        "user_agent": "Mozilla/5.0 Chrome/125",
+        "status_code": 200,
+        "risk_level": "LOW",
+        "user_id": "1190585"
+    },
+    {
+        "action": "VIEW",
+        "resource": "alerts",
+        "details": "Visualização de alertas de risco alto",
+        "ip_address": "189.45.123.67",
+        "user_agent": "Mozilla/5.0 Chrome/125",
+        "status_code": 200,
+        "risk_level": "LOW",
+        "user_id": "1190585"
+    },
+    {
+        "action": "EXPORT",
+        "resource": "prediction",
+        "details": "Exportação de relatório de predição IA para PDF",
+        "ip_address": "200.178.45.89",
+        "user_agent": "Mozilla/5.0 Firefox/124",
+        "status_code": 200,
+        "risk_level": "MEDIUM",
+        "user_id": "1190585"
+    },
+    {
+        "action": "CREATE",
+        "resource": "clients",
+        "details": "Novo cliente cadastrado: Fazenda São José",
+        "ip_address": "200.178.45.89",
+        "user_agent": "Mozilla/5.0 Firefox/124",
+        "status_code": 201,
+        "risk_level": "LOW",
+        "user_id": "1190585"
+    },
+    {
+        "action": "UPDATE",
+        "resource": "clients",
+        "details": "Atualização de plano: Basic → Pro",
+        "ip_address": "200.178.45.89",
+        "user_agent": "Mozilla/5.0 Firefox/124",
+        "status_code": 200,
+        "risk_level": "LOW",
+        "user_id": "1190585"
+    },
+    {
+        "action": "DELETE",
+        "resource": "clients",
+        "details": "Tentativa de exclusão de cliente ativo bloqueada",
+        "ip_address": "177.92.34.56",
+        "user_agent": "Mozilla/5.0 Safari/17",
+        "status_code": 403,
+        "risk_level": "HIGH",
+        "user_id": "1190585"
+    },
+    {
+        "action": "LOGIN",
+        "resource": "auth",
+        "details": "Tentativa de login com credenciais inválidas (3x)",
+        "ip_address": "177.92.34.56",
+        "user_agent": "Mozilla/5.0 Safari/17",
+        "status_code": 401,
+        "risk_level": "HIGH",
+        "user_id": "1190585"
+    },
+    {
+        "action": "VIEW",
+        "resource": "geospatial",
+        "details": "Acesso a dados geoespaciais - região Centro-Oeste",
+        "ip_address": "189.45.123.67",
+        "user_agent": "Mozilla/5.0 Chrome/125",
+        "status_code": 200,
+        "risk_level": "LOW",
+        "user_id": "1190585"
+    },
+    {
+        "action": "UPDATE",
+        "resource": "user_profiles",
+        "details": "Alteração de role: FISCAL → GERENTE",
+        "ip_address": "200.178.45.89",
+        "user_agent": "Mozilla/5.0 Firefox/124",
+        "status_code": 200,
+        "risk_level": "HIGH",
+        "user_id": "1190585"
+    },
+    {
+        "action": "EXPORT",
+        "resource": "alerts",
+        "details": "Exportação de dados de alertas em CSV",
+        "ip_address": "189.45.123.67",
+        "user_agent": "Mozilla/5.0 Chrome/125",
+        "status_code": 200,
+        "risk_level": "MEDIUM",
+        "user_id": "1190585"
+    },
+    {
+        "action": "VIEW",
+        "resource": "security",
+        "details": "Acesso ao painel de auditoria LGPD",
+        "ip_address": "200.178.45.89",
+        "user_agent": "Mozilla/5.0 Firefox/124",
+        "status_code": 200,
+        "risk_level": "LOW",
+        "user_id": "1190585"
+    }
+]

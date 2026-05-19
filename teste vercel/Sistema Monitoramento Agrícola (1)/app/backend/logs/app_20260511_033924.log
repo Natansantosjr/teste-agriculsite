@@ -1,0 +1,179 @@
+2026-05-11 03:39:24,948 - main - INFO - === Logging system initialized ===
+2026-05-11 03:39:24,950 - main - INFO - Log file: logs/app_20260511_033924.log
+2026-05-11 03:39:24,950 - main - INFO - Log level: INFO
+2026-05-11 03:39:24,950 - main - INFO - Timestamp: 20260511_033924
+2026-05-11 03:39:26,105 - main - INFO - Included router: routers.ai_prediction.router
+2026-05-11 03:39:26,125 - main - INFO - Included router: routers.aihub.router
+2026-05-11 03:39:26,175 - main - INFO - Included router: routers.audit_logs.router
+2026-05-11 03:39:26,189 - main - INFO - Included router: routers.auth.router
+2026-05-11 03:39:26,228 - main - INFO - Included router: routers.cities.router
+2026-05-11 03:39:26,276 - main - INFO - Included router: routers.clients.router
+2026-05-11 03:39:26,279 - main - INFO - Included router: routers.health.router
+2026-05-11 03:39:26,317 - main - INFO - Included router: routers.regions.router
+2026-05-11 03:39:26,339 - main - INFO - Included router: routers.settings.router
+2026-05-11 03:39:26,380 - main - INFO - Included router: routers.states.router
+2026-05-11 03:39:26,418 - main - INFO - Included router: routers.storage.router
+2026-05-11 03:39:26,438 - main - INFO - Included router: routers.user.router
+2026-05-11 03:39:26,487 - main - INFO - Included router: routers.user_profiles.router
+2026-05-11 03:39:26,488 - main - INFO - === Application startup initiated ===
+2026-05-11 03:39:26,489 - services.database - INFO - Ignore creating tables
+2026-05-11 03:39:26,489 - services.mock_data - INFO - Ignore initialize data
+2026-05-11 03:39:26,489 - services.auth - INFO - Ignore initialize admin
+2026-05-11 03:39:26,489 - main - INFO - === Application startup completed successfully ===
+2026-05-11 03:39:30,472 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-11 03:40:57,550 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-11 03:40:57,551 - core.database - WARNING - Database session maker not available, attempting lazy initialization...
+2026-05-11 03:40:57,551 - core.database - WARNING - Database not initialized, attempting lazy initialization...
+2026-05-11 03:40:57,551 - core.database - INFO - Starting database initialization...
+2026-05-11 03:40:57,551 - core.config - DEBUG - Read dynamic attribute database_url from environment variable DATABASE_URL
+2026-05-11 03:40:57,551 - core.database - INFO - Normalizing database URL for async compatibility...
+2026-05-11 03:40:57,552 - core.database - INFO - Creating async database engine...
+2026-05-11 03:40:57,552 - core.database - INFO - Using QueuePool with connection pooling for non-Lambda environment
+2026-05-11 03:40:57,616 - core.database - INFO - Database engine created successfully
+2026-05-11 03:40:57,616 - core.database - INFO - Creating async session maker...
+2026-05-11 03:40:57,616 - core.database - INFO - Async session maker created successfully
+2026-05-11 03:40:57,616 - core.database - INFO - Database connection initialized successfully
+2026-05-11 03:40:57,616 - core.database - DEBUG - [DB_OP] Starting create_tables
+2026-05-11 03:40:57,617 - core.database - INFO - 🔧 Starting table creation...
+2026-05-11 03:40:59,227 - core.database - INFO - Tables initialized successfully
+2026-05-11 03:40:59,228 - core.database - DEBUG - [DB_OP] Create tables completed in 1.6112s
+2026-05-11 03:40:59,288 - core.database - INFO - Lazy database initialization completed successfully
+2026-05-11 03:40:59,289 - core.database - DEBUG - [DB_OP] Database session created successfully in 1.7384s
+2026-05-11 03:40:59,922 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-11 03:40:59,922 - routers.auth - INFO - [login] Starting OIDC flow with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-11 03:40:59,923 - core.config - DEBUG - Read dynamic attribute oidc_client_id from environment variable OIDC_CLIENT_ID
+2026-05-11 03:40:59,923 - core.config - DEBUG - Read dynamic attribute oidc_scope from environment variable OIDC_SCOPE
+2026-05-11 03:40:59,923 - core.config - DEBUG - Read dynamic attribute oidc_issuer_url from environment variable OIDC_ISSUER_URL
+2026-05-11 03:40:59,924 - core.database - DEBUG - [DB_OP] Database session cleanup after 2.3737s
+2026-05-11 03:41:00,366 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-11 03:41:00,367 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-11 03:41:00,792 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-11 03:41:00,792 - routers.auth - INFO - [login] Starting OIDC flow with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-11 03:41:00,793 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4264s
+2026-05-11 03:41:07,161 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-11 03:41:07,161 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0005s
+2026-05-11 03:41:07,162 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-11 03:41:07,773 - routers.auth - INFO - [callback] Exchanging code for tokens with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-11 03:41:07,774 - core.config - DEBUG - Read dynamic attribute oidc_client_secret from environment variable OIDC_CLIENT_SECRET
+2026-05-11 03:41:09,276 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=5.0 socket_options=None
+2026-05-11 03:41:09,291 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f3534442f80>
+2026-05-11 03:41:09,291 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f35356b38c0> server_hostname='auth.atoms.dev' timeout=5.0
+2026-05-11 03:41:09,298 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f3534442ce0>
+2026-05-11 03:41:09,299 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-11 03:41:09,299 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-11 03:41:09,300 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-11 03:41:09,301 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-11 03:41:09,301 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-11 03:41:09,386 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 11 May 2026 10:41:09 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'x-response-time', b'0.063s'), (b'x-request-id', b'b4H-KsLYgW92eCz1HV62TF44hGEVYdJQbq_vN5xX2js'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9fa091d12b4cd183-LAX')])
+2026-05-11 03:41:09,387 - httpx - INFO - HTTP Request: POST https://auth.atoms.dev/api/v1/oidc/token "HTTP/1.1 200 OK"
+2026-05-11 03:41:09,387 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-11 03:41:09,388 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-11 03:41:09,388 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-11 03:41:09,388 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-11 03:41:09,389 - httpcore.connection - DEBUG - close.started
+2026-05-11 03:41:09,389 - httpcore.connection - DEBUG - close.complete
+2026-05-11 03:41:09,412 - core.auth - INFO - Fetching JWKS from: https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json
+2026-05-11 03:41:09,414 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=60.0 socket_options=None
+2026-05-11 03:41:09,428 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f35344989a0>
+2026-05-11 03:41:09,428 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f35356b2740> server_hostname='auth.atoms.dev' timeout=60.0
+2026-05-11 03:41:09,436 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f3534443eb0>
+2026-05-11 03:41:09,436 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2026-05-11 03:41:09,437 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-11 03:41:09,437 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2026-05-11 03:41:09,437 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-11 03:41:09,437 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2026-05-11 03:41:09,464 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 11 May 2026 10:41:09 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cache-control', b'public, max-age=3600'), (b'x-response-time', b'0.001s'), (b'x-request-id', b'cf518d47c651c75f55d97d2e4eef6128'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9fa091d1febd6d31-LAX')])
+2026-05-11 03:41:09,465 - httpx - INFO - HTTP Request: GET https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json "HTTP/1.1 200 OK"
+2026-05-11 03:41:09,465 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2026-05-11 03:41:09,465 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-11 03:41:09,466 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-11 03:41:09,466 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-11 03:41:09,467 - core.auth - INFO - Successfully fetched JWKS with 1 keys
+2026-05-11 03:41:09,467 - httpcore.connection - DEBUG - close.started
+2026-05-11 03:41:09,467 - httpcore.connection - DEBUG - close.complete
+2026-05-11 03:41:09,489 - core.auth - INFO - ID token successfully validated for user hash: c2a2e586
+2026-05-11 03:41:09,489 - services.auth - DEBUG - [DB_OP] Starting get_or_create_user - platform_sub: 1190585
+2026-05-11 03:41:09,853 - services.auth - DEBUG - [DB_OP] User lookup completed in 0.3640s - found: True
+2026-05-11 03:41:09,854 - services.auth - DEBUG - [DB_OP] Starting user commit/refresh
+2026-05-11 03:41:10,340 - services.auth - DEBUG - [DB_OP] User commit/refresh completed in 0.4863s
+2026-05-11 03:41:10,341 - core.config - DEBUG - Read dynamic attribute jwt_expire_minutes from environment variable JWT_EXPIRE_MINUTES
+2026-05-11 03:41:10,341 - core.config - DEBUG - Read dynamic attribute jwt_secret_key from environment variable JWT_SECRET_KEY
+2026-05-11 03:41:10,341 - core.config - DEBUG - Read dynamic attribute jwt_algorithm from environment variable JWT_ALGORITHM
+2026-05-11 03:41:10,342 - core.auth - DEBUG - Authentication token created for user hash: c2a2e586
+2026-05-11 03:41:10,342 - routers.auth - INFO - [callback] OIDC callback successful, redirecting to https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/auth/callback?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMTkwNTg1IiwiZW1haWwiOiJhZG1jYW1idWlzb2x1Y29lc2VtaWFAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwibmFtZSI6ImFkbWNhbWJ1aXNvbHVjb2VzZW1pYSIsImxhc3RfbG9naW4iOiIyMDI2LTA1LTExVDEwOjQxOjA5Ljg1NDI5NiswMDowMCIsImV4cCI6MTc4MTA4ODA3MCwiaWF0IjoxNzc4NDk2MDcwLCJuYmYiOjE3Nzg0OTYwNzB9.2Oaf-MTXwxZ4JLDx3B08ZOBl3OjNzPHGUvOzeLC1cIE&expires_at=1781088070&token_type=Bearer
+2026-05-11 03:41:10,343 - core.database - DEBUG - [DB_OP] Database session cleanup after 3.1821s
+2026-05-11 03:41:13,183 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-11 03:41:15,494 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-11 03:41:15,850 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-11 03:41:15,850 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-11 03:41:15,850 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-11 03:41:15,850 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-11 03:41:16,336 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-11 03:41:16,337 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4873s
+2026-05-11 03:41:33,601 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-11 03:41:33,601 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-11 03:41:34,027 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-11 03:41:34,027 - routers.auth - INFO - [login] Starting OIDC flow with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-11 03:41:34,028 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.4270s
+2026-05-11 03:41:38,739 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-11 03:41:38,739 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0004s
+2026-05-11 03:41:38,740 - routers.auth - DEBUG - [get_dynamic_backend_url] mgx-external-domain=None, x-forwarded-host=f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev, host=localhost, scheme=https, dynamic_url=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev
+2026-05-11 03:41:39,225 - routers.auth - INFO - [callback] Exchanging code for tokens with redirect_uri=https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/api/v1/auth/callback
+2026-05-11 03:41:39,317 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=5.0 socket_options=None
+2026-05-11 03:41:39,332 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f35344f5d50>
+2026-05-11 03:41:39,333 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f35344daa40> server_hostname='auth.atoms.dev' timeout=5.0
+2026-05-11 03:41:39,342 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f35344f5270>
+2026-05-11 03:41:39,343 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-11 03:41:39,343 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-11 03:41:39,343 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-11 03:41:39,344 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-11 03:41:39,344 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-11 03:41:39,438 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 11 May 2026 10:41:39 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'x-response-time', b'0.063s'), (b'x-request-id', b'w8-oBZWXY6sfNTSGkZYTFxRiquQxOtybqtT7VnwWax0'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9fa0928ce987b152-LAX')])
+2026-05-11 03:41:39,439 - httpx - INFO - HTTP Request: POST https://auth.atoms.dev/api/v1/oidc/token "HTTP/1.1 200 OK"
+2026-05-11 03:41:39,439 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-11 03:41:39,440 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-11 03:41:39,440 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-11 03:41:39,440 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-11 03:41:39,440 - httpcore.connection - DEBUG - close.started
+2026-05-11 03:41:39,441 - httpcore.connection - DEBUG - close.complete
+2026-05-11 03:41:39,463 - core.auth - INFO - Fetching JWKS from: https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json
+2026-05-11 03:41:39,464 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=60.0 socket_options=None
+2026-05-11 03:41:39,476 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f35344f7550>
+2026-05-11 03:41:39,476 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f35344da940> server_hostname='auth.atoms.dev' timeout=60.0
+2026-05-11 03:41:39,485 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f35344f4280>
+2026-05-11 03:41:39,486 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2026-05-11 03:41:39,486 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-05-11 03:41:39,487 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2026-05-11 03:41:39,487 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-05-11 03:41:39,487 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2026-05-11 03:41:39,520 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 11 May 2026 10:41:39 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cache-control', b'public, max-age=3600'), (b'x-response-time', b'0.001s'), (b'x-request-id', b'83fbdf8ec2404f18220670e3f02fa545'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9fa0928dc9b16a2d-LAX')])
+2026-05-11 03:41:39,521 - httpx - INFO - HTTP Request: GET https://auth.atoms.dev/api/v1/oidc/.well-known/jwks.json "HTTP/1.1 200 OK"
+2026-05-11 03:41:39,522 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2026-05-11 03:41:39,523 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-05-11 03:41:39,523 - httpcore.http11 - DEBUG - response_closed.started
+2026-05-11 03:41:39,523 - httpcore.http11 - DEBUG - response_closed.complete
+2026-05-11 03:41:39,524 - core.auth - INFO - Successfully fetched JWKS with 1 keys
+2026-05-11 03:41:39,524 - httpcore.connection - DEBUG - close.started
+2026-05-11 03:41:39,524 - httpcore.connection - DEBUG - close.complete
+2026-05-11 03:41:39,525 - core.auth - INFO - ID token successfully validated for user hash: c2a2e586
+2026-05-11 03:41:39,525 - services.auth - DEBUG - [DB_OP] Starting get_or_create_user - platform_sub: 1190585
+2026-05-11 03:41:39,827 - services.auth - DEBUG - [DB_OP] User lookup completed in 0.3016s - found: True
+2026-05-11 03:41:39,827 - services.auth - DEBUG - [DB_OP] Starting user commit/refresh
+2026-05-11 03:41:40,252 - services.auth - DEBUG - [DB_OP] User commit/refresh completed in 0.4243s
+2026-05-11 03:41:40,253 - core.auth - DEBUG - Authentication token created for user hash: c2a2e586
+2026-05-11 03:41:40,253 - routers.auth - INFO - [callback] OIDC callback successful, redirecting to https://f1egvd-4f214db9a34f459aa35e1deab2f63010-preview.app.atoms.dev/auth/callback?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMTkwNTg1IiwiZW1haWwiOiJhZG1jYW1idWlzb2x1Y29lc2VtaWFAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwibmFtZSI6ImFkbWNhbWJ1aXNvbHVjb2VzZW1pYSIsImxhc3RfbG9naW4iOiIyMDI2LTA1LTExVDEwOjQxOjM5LjgyNzg3OSswMDowMCIsImV4cCI6MTc4MTA4ODEwMCwiaWF0IjoxNzc4NDk2MTAwLCJuYmYiOjE3Nzg0OTYxMDB9.uhQ8szLnUYzT9PU7EXeJLj6C9r2_GdPoDSGS_6qV0q0&expires_at=1781088100&token_type=Bearer
+2026-05-11 03:41:40,254 - core.database - DEBUG - [DB_OP] Database session cleanup after 1.5147s
+2026-05-11 03:41:43,078 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-11 03:41:45,243 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-11 03:41:45,527 - core.auth - DEBUG - Authentication token validated for user hash: c2a2e586
+2026-05-11 03:41:45,527 - core.database - DEBUG - [DB_OP] Starting get_db session creation
+2026-05-11 03:41:45,527 - core.database - DEBUG - [DB_OP] Database session created successfully in 0.0002s
+2026-05-11 03:41:45,528 - routers.user_profiles - DEBUG - Querying user_profiless: query=None, sort=None, skip=0, limit=20, fields=None
+2026-05-11 03:41:45,889 - routers.user_profiles - DEBUG - Found 1 user_profiless
+2026-05-11 03:41:45,890 - core.database - DEBUG - [DB_OP] Database session cleanup after 0.3629s
+2026-05-11 03:45:58,918 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-11 03:46:29,308 - dependencies.auth - DEBUG - Authentication required for request GET /api/v1/auth/me
+2026-05-11 03:47:14,556 - services.database - DEBUG - [DB_OP] Starting database close
+2026-05-11 03:47:14,557 - core.database - INFO - Database connection closed and engine disposed
+2026-05-11 03:47:14,558 - services.database - INFO - Database connections closed
+2026-05-11 03:47:14,558 - services.database - DEBUG - [DB_OP] Database close completed in 0.0016s

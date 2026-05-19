@@ -1,0 +1,36 @@
+{
+    "title": "user_profiles",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "user_id": {
+            "type": "string",
+            "description": "User ID from auth system"
+        },
+        "role": {
+            "type": "string",
+            "description": "User role: ADM, GERENTE, or FISCAL"
+        },
+        "full_name": {
+            "type": "string",
+            "description": "Full name of the user"
+        },
+        "department": {
+            "type": "string",
+            "description": "Department name"
+        },
+        "region": {
+            "type": "string",
+            "description": "Assigned region"
+        }
+    },
+    "required": [
+        "id",
+        "user_id",
+        "role",
+        "full_name"
+    ]
+}

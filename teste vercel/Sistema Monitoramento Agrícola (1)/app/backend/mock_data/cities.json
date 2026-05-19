@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Manaus",
+        "state_id": 1,
+        "area_hectares": 45000,
+        "main_crop": "Açaí"
+    },
+    {
+        "name": "Parintins",
+        "state_id": 1,
+        "area_hectares": 32000,
+        "main_crop": "Mandioca"
+    },
+    {
+        "name": "Belém",
+        "state_id": 2,
+        "area_hectares": 28000,
+        "main_crop": "Dendê"
+    },
+    {
+        "name": "Marabá",
+        "state_id": 2,
+        "area_hectares": 55000,
+        "main_crop": "Soja"
+    },
+    {
+        "name": "Barreiras",
+        "state_id": 3,
+        "area_hectares": 120000,
+        "main_crop": "Soja"
+    },
+    {
+        "name": "Luís Eduardo Magalhães",
+        "state_id": 3,
+        "area_hectares": 95000,
+        "main_crop": "Algodão"
+    },
+    {
+        "name": "Petrolina",
+        "state_id": 4,
+        "area_hectares": 42000,
+        "main_crop": "Uva"
+    },
+    {
+        "name": "Juazeiro do Norte",
+        "state_id": 5,
+        "area_hectares": 18000,
+        "main_crop": "Milho"
+    },
+    {
+        "name": "Rio Verde",
+        "state_id": 6,
+        "area_hectares": 180000,
+        "main_crop": "Soja"
+    },
+    {
+        "name": "Jataí",
+        "state_id": 6,
+        "area_hectares": 150000,
+        "main_crop": "Milho"
+    },
+    {
+        "name": "Sorriso",
+        "state_id": 7,
+        "area_hectares": 250000,
+        "main_crop": "Soja"
+    },
+    {
+        "name": "Lucas do Rio Verde",
+        "state_id": 7,
+        "area_hectares": 200000,
+        "main_crop": "Algodão"
+    },
+    {
+        "name": "Dourados",
+        "state_id": 8,
+        "area_hectares": 130000,
+        "main_crop": "Cana-de-açúcar"
+    },
+    {
+        "name": "Ribeirão Preto",
+        "state_id": 9,
+        "area_hectares": 160000,
+        "main_crop": "Cana-de-açúcar"
+    },
+    {
+        "name": "Campinas",
+        "state_id": 9,
+        "area_hectares": 85000,
+        "main_crop": "Café"
+    },
+    {
+        "name": "Uberlândia",
+        "state_id": 10,
+        "area_hectares": 140000,
+        "main_crop": "Soja"
+    },
+    {
+        "name": "Uberaba",
+        "state_id": 10,
+        "area_hectares": 110000,
+        "main_crop": "Cana-de-açúcar"
+    },
+    {
+        "name": "Londrina",
+        "state_id": 12,
+        "area_hectares": 95000,
+        "main_crop": "Soja"
+    },
+    {
+        "name": "Cascavel",
+        "state_id": 12,
+        "area_hectares": 120000,
+        "main_crop": "Milho"
+    },
+    {
+        "name": "Passo Fundo",
+        "state_id": 13,
+        "area_hectares": 88000,
+        "main_crop": "Trigo"
+    }
+]
