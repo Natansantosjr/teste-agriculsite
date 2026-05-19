@@ -18,7 +18,7 @@ let configLoading = true;
 
 // Default fallback configuration
 const defaultConfig = {
-  API_BASE_URL: 'http://127.0.0.1:8000', // Only used if runtime config fails to load
+  API_BASE_URL: import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000',
 };
 
 // Function to load runtime configuration
