@@ -33,15 +33,22 @@ class RPApi {
     }
   }
 
-  async login() {
+ async login() {
     try {
+      // Passamos a URL atual do navegador (Vercel) para o backend saber para onde voltar depois
+      const currentOrigin = window.location.origin;
+      
       const response = await this.client.get(
-        `${this.getBaseURL()}/api/v1/auth/login`
+        `${this.getBaseURL()}/api/v1/auth/login?from_url=${encodeURIComponent(currentOrigin)}`
       );
-      // The backend will redirect to OIDC provider
-      // SSO will work via cookies automatically
-      window.location.href = response.data.redirect_url;
+      
+      if (response.data && response.data.redirect_url) {
+        window.location.href = response.data.redirect_url;
+      } else {
+        throw new Error('Redirect URL não foi encontrada na resposta do servidor.');
+      }
     } catch (error) {
+      console.error("Erro detalhado no login:", error);
       throw new Error(
         error.response?.data?.detail || 'Failed to initiate login'
       );
