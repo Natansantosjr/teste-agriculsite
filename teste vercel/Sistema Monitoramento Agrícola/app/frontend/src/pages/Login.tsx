@@ -1,7 +1,24 @@
+import { useEffect, useState } from "react";
 import { Shield, Users, ClipboardCheck, ArrowLeft } from "lucide-react";
 import { useNavigate, Navigate } from "react-router-dom";
-import { client } from "@/lib/api";
 import { useAuth } from "@/contexts/AuthContext";
+
+// Imports do Firebase e FirebaseUI
+import { initializeApp, getApps, getApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import * as firebaseui from "firebaseui";
+import "firebaseui/dist/firebaseui.css";
+
+// 1. Substitua aqui com as credenciais que o console do Firebase te deu:
+const firebaseConfig = {
+  apiKey: "SUA_API_KEY_AQUI",
+  authDomain: "seu-projeto.firebaseapp.com",
+  projectId: "seu-projeto-id",
+};
+
+// Inicializa o Firebase garantindo que não vai duplicar a instância
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+const auth = getAuth(app);
 
 interface RoleCard {
   role: string;
@@ -34,11 +51,34 @@ const roles: RoleCard[] = [
 export default function Login() {
   const navigate = useNavigate();
   const { isAuthenticated, isLoading } = useAuth();
+  
+  // Estado para controlar qual perfil foi clicado
+  const [selectedRole, setSelectedRole] = useState<string | null>(null);
 
   const handleRoleSelect = (role: string) => {
     localStorage.setItem("selected_role", role);
-    client.auth.toLogin();
+    setSelectedRole(role); // Define o estado para mudar a tela para o login
   };
+
+  useEffect(() => {
+    // Só ativa o FirebaseUI se o usuário escolheu um perfil e a div container existir
+    if (!selectedRole) return;
+
+    const uiConfig = {
+      signInSuccessUrl: "/dashboard", // Para onde vai após logar com sucesso
+      signInOptions: [
+        {
+          provider: "password", // Habilita login tradicional por email e senha
+          requireDisplayName: false,
+        },
+      ],
+      credentialHelper: firebaseui.auth.CredentialHelper.NONE, // Desativa popups extras do Google
+    };
+
+    // Inicializa ou reaproveita o painel visual do FirebaseUI
+    const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
+    ui.start("#firebaseui-auth-container", uiConfig);
+  }, [selectedRole]);
 
   if (isLoading) {
     return (
@@ -64,44 +104,67 @@ export default function Login() {
         className="w-16 h-16 rounded-2xl shadow-lg shadow-emerald-500/20 mb-8"
       />
 
-      {/* Title */}
-      <h1 className="text-2xl md:text-3xl font-bold mb-2 text-center">
-        Selecione seu Perfil de Acesso
-      </h1>
-      <p className="text-gray-400 mb-10 text-center max-w-md">
-        Escolha o perfil que melhor corresponde à sua função na plataforma.
-      </p>
+      {/* TELA DE FORMULÁRIO DO FIREBASE (Se o perfil foi selecionado) */}
+      {selectedRole ? (
+        <div className="flex flex-col items-center w-full max-w-md animate-fade-in">
+          <h1 className="text-2xl font-bold mb-2 text-center">
+            Acesso como {selectedRole}
+          </h1>
+          <p className="text-gray-400 mb-6 text-center text-sm">
+            Insira suas credenciais cadastradas para continuar.
+          </p>
 
-      {/* Role Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full">
-        {roles.map((card) => (
+          {/* O FirebaseUI vai renderizar o painel pronto do Google dentro dessa div */}
+          <div id="firebaseui-auth-container" className="w-full text-black"></div>
+
           <button
-            key={card.role}
-            onClick={() => handleRoleSelect(card.role)}
-            className="group flex flex-col items-center text-center p-8 bg-[#1E293B]/60 border border-white/10 rounded-2xl transition-all duration-300 hover:border-emerald-500/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-emerald-500/10 cursor-pointer"
+            onClick={() => setSelectedRole(null)}
+            className="mt-6 flex items-center gap-2 text-gray-400 hover:text-emerald-400 transition-colors text-sm cursor-pointer"
           >
-            <div className="w-16 h-16 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-5 group-hover:bg-emerald-500/30 transition-colors">
-              {card.icon}
-            </div>
-            <h2 className="text-lg font-semibold mb-1">{card.role}</h2>
-            <p className="text-sm text-emerald-400 font-medium mb-3">
-              {card.title}
-            </p>
-            <p className="text-sm text-gray-400 leading-relaxed">
-              {card.description}
-            </p>
+            <ArrowLeft className="w-4 h-4" />
+            Voltar para perfis
           </button>
-        ))}
-      </div>
+        </div>
+      ) : (
+        /* TELA DOS 3 CARDS ORIGINAIS (Se nenhum perfil foi selecionado ainda) */
+        <div className="flex flex-col items-center w-full max-w-4xl">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2 text-center">
+            Selecione seu Perfil de Acesso
+          </h1>
+          <p className="text-gray-400 mb-10 text-center max-w-md">
+            Escolha o perfil que melhor corresponde à sua função na plataforma.
+          </p>
 
-      {/* Back link */}
-      <button
-        onClick={() => navigate("/landing")}
-        className="mt-10 flex items-center gap-2 text-gray-400 hover:text-emerald-400 transition-colors text-sm"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        Voltar
-      </button>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            {roles.map((card) => (
+              <button
+                key={card.role}
+                onClick={() => handleRoleSelect(card.role)}
+                className="group flex flex-col items-center text-center p-8 bg-[#1E293B]/60 border border-white/10 rounded-2xl transition-all duration-300 hover:border-emerald-500/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-emerald-500/10 cursor-pointer"
+              >
+                <div className="w-16 h-16 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-5 group-hover:bg-emerald-500/30 transition-colors">
+                  {card.icon}
+                </div>
+                <h2 className="text-lg font-semibold mb-1">{card.role}</h2>
+                <p className="text-sm text-emerald-400 font-medium mb-3">
+                  {card.title}
+                </p>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  {card.description}
+                </p>
+              </button>
+            ))}
+          </div>
+
+          <button
+            onClick={() => navigate("/landing")}
+            className="mt-10 flex items-center gap-2 text-gray-400 hover:text-emerald-400 transition-colors text-sm cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Voltar
+          </button>
+        </div>
+      )}
     </div>
   );
 }
