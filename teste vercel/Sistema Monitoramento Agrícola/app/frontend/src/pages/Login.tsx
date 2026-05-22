@@ -75,17 +75,15 @@ export default function Login() {
     // Salva no localStorage por garantia
     localStorage.setItem("selected_role", selectedRole);
 
-    const uiConfig = {
+   const uiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: function (authResult: any, redirectUrl: string) {
           const token = authResult.user.accessToken;
           localStorage.setItem("token", token);
           
-          // Se o usuário acabou de se cadastrar e não tem displayName, 
-          // ou se queremos garantir o cargo atualizado, salvamos no perfil do Firebase
           if (authResult.user && (!authResult.user.displayName || authResult.user.displayName !== selectedRole)) {
             authResult.user.updateProfile({
-              displayName: selectedRole // <-- Guardamos ADM, GERENTE ou FISCAL aqui dentro!
+              displayName: selectedRole
             }).then(() => {
               navigate("/dashboard");
             });
@@ -96,14 +94,22 @@ export default function Login() {
           return false; 
         },
       },
+      // 1. Desativa completamente o gerenciador de credenciais do Chrome / Firebase
       credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+      
+      // 2. Força o FirebaseUI a aceitar o e-mail sem tentar vincular com Google/Facebook antigos
       signInOptions: [
         {
-          provider: "password",
+          provider: 'password', // Certifique-se de que está com aspas simples ou duplas padrão
           requireDisplayName: false,
+          // Evita que o FirebaseUI tente buscar contas existentes no cache local:
+          disableSignUp: {
+            status: false
+          }
         },
       ],
     };
+   
 
     ui.reset();
     ui.start("#firebaseui-auth-container", uiConfig);
