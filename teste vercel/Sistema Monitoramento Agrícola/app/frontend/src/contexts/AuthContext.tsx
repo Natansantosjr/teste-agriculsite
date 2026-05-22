@@ -89,7 +89,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   // COLE A FUNÇÃO EXATAMENTE AQUI (Logo após o término do useEffect):
-  async function loadProfile(authUser: AuthUser) {
+ async function loadProfile(authUser: AuthUser) {
     try {
       const response = await withRetry(() =>
         client.entities.user_profiles.query({})
@@ -97,21 +97,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       
       const items = response?.data?.items || [];
       
+      // Pegamos o cargo selecionado IMEDIATAMENTE
+      const cachedRole = localStorage.getItem("selected_role");
+      console.log("Cargo detectado no localStorage durante o loadProfile:", cachedRole);
+
       if (items.length > 0) {
-        // Se o usuário já existe, apenas carrega o que está no banco
-        console.log("Usuário já existente encontrado. Perfil:", items[0]);
+        console.log("Usuário já existente no banco. Carregando dados:", items[0]);
         setProfile(items[0] as UserProfile);
       } else {
-        // USUÁRIO NOVO: Buscando o cargo que salvamos na tela de login
-        const selectedRole = localStorage.getItem("selected_role");
-        
-        // Log para vermos o que está acontecendo no inspecionar elemento
-        console.log("DEBUG CADASTRO - Cargo pego do localStorage:", selectedRole);
+        // Se for nulo por falha de render do FirebaseUI, tentamos não usar "FISCAL" direto se clicamos em algo
+        const roleParaSalvar = cachedRole || "ADM"; // Mudamos o padrão temporariamente para testar se é o fallback
 
-        // Se por algum motivo bizarro o localStorage falhar, vamos tentar usar o último selecionado
-        const roleParaSalvar = selectedRole || "FISCAL"; 
-
-        console.log(`Tentando criar no banco com o cargo final: ${roleParaSalvar}`);
+        console.log(`Criando novo perfil no banco. Cargo enviado: ${roleParaSalvar}`);
 
         const createResponse = await withRetry(() =>
           client.entities.user_profiles.create({
@@ -123,14 +120,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         ) as any;
         
         if (createResponse?.data) {
-          console.log("Perfil criado com sucesso no banco!", createResponse.data);
+          console.log("Perfil criado com sucesso:", createResponse.data);
           setProfile(createResponse.data as UserProfile);
-          // Opcional: manter o item por enquanto para garantir que builds não limpem no meio do processo
-          localStorage.removeItem("selected_role");
+          // NÃO vamos remover o selected_role agora. Deixe ele salvo para o painel ler!
         }
       }
     } catch (error) {
-      console.error("Erro crítico ao carregar/criar perfil:", error);
+      console.error("Erro no loadProfile:", error);
       setProfile(null);
     }
   }

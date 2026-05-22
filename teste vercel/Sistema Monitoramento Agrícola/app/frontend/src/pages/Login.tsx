@@ -64,29 +64,44 @@ export default function Login() {
     setSelectedRole(role);
   };
 
-  useEffect(() => {
-    // Pega ou cria a instância do painel visual do Firebase
+ useEffect(() => {
+    // 1. Garante a instância do FirebaseUI
     const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
 
-    // Se o usuário voltou para a seleção de perfis, limpa a caixinha antiga da tela!
+    // 2. Se não houver perfil selecionado, limpa tudo e para
     if (!selectedRole) {
       ui.reset(); 
       return;
     }
 
+    // 3. Força o salvamento no localStorage aqui de novo por garantia anti-perda de estado
+    localStorage.setItem("selected_role", selectedRole);
+
     const uiConfig = {
-      signInSuccessUrl: "/dashboard",
+      callbacks: {
+        signInSuccessWithAuthResult: function (authResult: any, redirectUrl: string) {
+          const token = authResult.user.accessToken;
+          localStorage.setItem("token", token);
+          
+          // Força o redirecionamento via React Router
+          navigate("/dashboard");
+          return false; 
+        },
+      },
+      // Desativa COMPLETAMENTE a caixinha amarela de reset de senha (Account Chooser)
+      credentialHelper: firebaseui.auth.CredentialHelper.NONE,
       signInOptions: [
         {
           provider: "password",
           requireDisplayName: false,
         },
       ],
-      credentialHelper: firebaseui.auth.CredentialHelper.NONE,
     };
 
+    // 4. Limpa o contêiner antes de injetar para evitar duplicações de configuração em cache
+    ui.reset();
     ui.start("#firebaseui-auth-container", uiConfig);
-  }, [selectedRole]);
+  }, [selectedRole, navigate]);
 
   if (isLoading) {
     return (
