@@ -70,12 +70,19 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<Login />} />
+          {/* Abre diretamente na Landing Page ao acessar a URL principal do sistema */}
+          <Route path="/" element={<LandingPage />} />
+          
+          {/* Rota para seleção de perfil e autenticação do FirebaseUI */}
           <Route path="/login" element={<Login />} />
+          
+          {/* Rotas de Callback e utilitários de autenticação */}
           <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path="/auth/error" element={<AuthError />} />
           <Route path="/logout/callback" element={<LogoutCallbackPage />} />
           <Route path="/landing" element={<LandingPage />} />
+          
+          {/* Captura todas as outras rotas e valida se o usuário está logado */}
           <Route path="*" element={<ProtectedRoutes />} />
         </Routes>
       </AuthProvider>
