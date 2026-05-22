@@ -61,22 +61,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
  // ... resto dos seus states (user, profile, isLoading) acima
 
-  useEffect(() => {
+ useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       setIsLoading(true);
       if (firebaseUser) {
+        // Buscamos o cargo do displayName do Firebase ou do localStorage
+        const userRole = firebaseUser.displayName || localStorage.getItem("selected_role") || "FISCAL";
+
         const authUser: AuthUser = {
           id: firebaseUser.uid,
           email: firebaseUser.email || "",
-          name: firebaseUser.displayName || firebaseUser.email || "Usuário",
+          name: userRole, // Injeta o cargo como o nome para identificação rápida
         };
         
         setUser(authUser);
         const token = await firebaseUser.getIdToken();
         localStorage.setItem("token", token);
         
-        // Aqui é a linha 81 que deu o erro. Ela vai achar a função logo abaixo!
-        await loadProfile(authUser); 
+        await loadProfile(authUser, userRole); 
       } else {
         setUser(null);
         setProfile(null);
@@ -88,8 +90,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => unsubscribe();
   }, []);
 
-  // COLE A FUNÇÃO EXATAMENTE AQUI (Logo após o término do useEffect):
- async function loadProfile(authUser: AuthUser) {
+  async function loadProfile(authUser: AuthUser, currentRole: string) {
     try {
       const response = await withRetry(() =>
         client.entities.user_profiles.query({})
@@ -97,36 +98,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       
       const items = response?.data?.items || [];
       
-      // Pegamos o cargo selecionado IMEDIATAMENTE
-      const cachedRole = localStorage.getItem("selected_role");
-      console.log("Cargo detectado no localStorage durante o loadProfile:", cachedRole);
-
       if (items.length > 0) {
-        console.log("Usuário já existente no banco. Carregando dados:", items[0]);
         setProfile(items[0] as UserProfile);
       } else {
-        // Se for nulo por falha de render do FirebaseUI, tentamos não usar "FISCAL" direto se clicamos em algo
-        const roleParaSalvar = cachedRole || "ADM"; // Mudamos o padrão temporariamente para testar se é o fallback
-
-        console.log(`Criando novo perfil no banco. Cargo enviado: ${roleParaSalvar}`);
+        // Se for um usuário novo, usamos o cargo blindado que veio do Firebase/Clique
+        console.log(`Criando perfil no banco com o cargo garantido: ${currentRole}`);
 
         const createResponse = await withRetry(() =>
           client.entities.user_profiles.create({
             data: {
-              role: roleParaSalvar,
-              full_name: authUser.name || authUser.email || "Usuário",
+              role: currentRole, // <-- Agora vai ADM de verdade!
+              full_name: authUser.email?.split('@')[0] || "Usuário",
             },
           })
         ) as any;
         
         if (createResponse?.data) {
-          console.log("Perfil criado com sucesso:", createResponse.data);
           setProfile(createResponse.data as UserProfile);
-          // NÃO vamos remover o selected_role agora. Deixe ele salvo para o painel ler!
         }
       }
     } catch (error) {
-      console.error("Erro no loadProfile:", error);
+      console.error("Erro ao criar perfil:", error);
       setProfile(null);
     }
   }
@@ -145,7 +137,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     localStorage.removeItem("selected_role");
   }
 
-  const role = profile?.role || "FISCAL";
+  const role = profile?.role || localStorage.getItem("selected_role") || "FISCAL";
 
   return (
     <AuthContext.Provider
