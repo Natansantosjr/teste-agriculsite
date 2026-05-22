@@ -244,8 +244,8 @@ export default function LandingPage() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <img
               src="/assets/cambui-logo.png"
-              alt="Cambuí"
-              className="w-8 h-8 rounded-lg"
+              alt="Cambuí Online"
+              className="w-16 h-16 object-contain rounded-2xl shadow-lg shadow-emerald-500/20 mb-8"
             />
             <span className="font-bold text-lg">CAMBUÍ ONLINE</span>
           </div>
