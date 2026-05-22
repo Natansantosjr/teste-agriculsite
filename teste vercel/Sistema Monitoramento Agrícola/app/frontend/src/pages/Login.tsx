@@ -59,6 +59,7 @@ export default function Login() {
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
 
   const handleRoleSelect = (role: string) => {
+    // Força o salvamento imediato no navegador
     localStorage.setItem("selected_role", role);
     setSelectedRole(role);
   };

@@ -98,32 +98,42 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const items = response?.data?.items || [];
       
       if (items.length > 0) {
+        // Se o usuário já existe, apenas carrega o que está no banco
+        console.log("Usuário já existente encontrado. Perfil:", items[0]);
         setProfile(items[0] as UserProfile);
       } else {
-        const selectedRole = localStorage.getItem("selected_role") || "FISCAL";
+        // USUÁRIO NOVO: Buscando o cargo que salvamos na tela de login
+        const selectedRole = localStorage.getItem("selected_role");
         
-        console.log(`Criando perfil novo no banco com o cargo: ${selectedRole}`);
+        // Log para vermos o que está acontecendo no inspecionar elemento
+        console.log("DEBUG CADASTRO - Cargo pego do localStorage:", selectedRole);
+
+        // Se por algum motivo bizarro o localStorage falhar, vamos tentar usar o último selecionado
+        const roleParaSalvar = selectedRole || "FISCAL"; 
+
+        console.log(`Tentando criar no banco com o cargo final: ${roleParaSalvar}`);
 
         const createResponse = await withRetry(() =>
           client.entities.user_profiles.create({
             data: {
-              role: selectedRole,
+              role: roleParaSalvar,
               full_name: authUser.name || authUser.email || "Usuário",
             },
           })
         ) as any;
         
         if (createResponse?.data) {
+          console.log("Perfil criado com sucesso no banco!", createResponse.data);
           setProfile(createResponse.data as UserProfile);
+          // Opcional: manter o item por enquanto para garantir que builds não limpem no meio do processo
           localStorage.removeItem("selected_role");
         }
       }
     } catch (error) {
-      console.error("Erro ao carregar/criar perfil:", error);
+      console.error("Erro crítico ao carregar/criar perfil:", error);
       setProfile(null);
     }
   }
-
   // ... abaixo continua com a function login(), logout(), etc.
  
 
