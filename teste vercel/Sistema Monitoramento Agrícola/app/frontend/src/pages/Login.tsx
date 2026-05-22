@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
-import { Shield, Users, ClipboardCheck, ArrowLeft, Mail, Lock, UserPlus, LogIn } from "lucide-react";
+import { Shield, Users, ClipboardCheck, ArrowLeft, Mail, Lock, UserPlus, LogIn, KeyRound } from "lucide-react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 
-// Imports do Firebase
+// Imports modulares do Firebase v10+
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { 
+  getAuth, 
+  signInWithEmailAndPassword, 
+  createUserWithEmailAndPassword, 
+  updateProfile, 
+  sendPasswordResetEmail 
+} from "firebase/auth";
 
+// 1. Substitua aqui com as credenciais que o console do Firebase te deu:
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -16,6 +23,7 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
+// Inicializa o Firebase garantindo que não vai duplicar a instância
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 const auth = getAuth(app);
 
@@ -52,26 +60,29 @@ export default function Login() {
   const { isAuthenticated, isLoading } = useAuth();
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   
-  // Estados do formulário
+  // Estados de controle do formulário customizado
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState<string | null>(null);
+  const [authSuccess, setAuthSuccess] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  // ESTADO CHAVE: Define se a tela está em modo LOGIN ou modo CADASTRO
+  // Estado que gerencia se a tela exibe o fluxo de Login ou de Cadastro
   const [isSignUpMode, setIsSignUpMode] = useState(false);
 
   const handleRoleSelect = (role: string) => {
     localStorage.setItem("selected_role", role);
     setSelectedRole(role);
     setAuthError(null);
-    setIsSignUpMode(false); // Sempre inicia em modo login ao escolher o perfil
+    setAuthSuccess(null);
+    setIsSignUpMode(false); // Sempre abre em modo de Login por padrão
   };
 
-  // Processa o envio do formulário baseado no modo atual
+  // Processa a autenticação de forma direta (burlando o Account Chooser)
   const handleAuthSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setAuthError(null);
+    setAuthSuccess(null);
     setIsSubmitting(true);
 
     try {
@@ -83,7 +94,7 @@ export default function Login() {
         const token = (userCredential.user as any).accessToken;
         localStorage.setItem("token", token);
 
-        // Injeta a função selecionada no perfil do usuário
+        // Atualiza o perfil injetando o cargo escolhido no displayName
         await updateProfile(userCredential.user, {
           displayName: selectedRole
         });
@@ -97,6 +108,7 @@ export default function Login() {
         const token = (userCredential.user as any).accessToken;
         localStorage.setItem("token", token);
 
+        // Garante que o perfil do usuário tem o cargo selecionado salvo
         if (userCredential.user && (!userCredential.user.displayName || userCredential.user.displayName !== selectedRole)) {
           await updateProfile(userCredential.user, {
             displayName: selectedRole
@@ -106,20 +118,47 @@ export default function Login() {
         navigate("/dashboard");
       }
     } catch (error: any) {
-      console.error("Erro na autenticação:", error.code);
+      console.error("Erro operacional no Firebase:", error.code);
       
-      // Tratamento customizado de mensagens de erro
+      // Tratamento amigável das mensagens de erro do SDK
       if (error.code === "auth/email-already-in-use") {
-        setAuthError("Este e-mail já está cadastrado. Tente fazer login.");
+        setAuthError("Este e-mail já está cadastrado no sistema.");
       } else if (error.code === "auth/weak-password") {
-        setAuthError("A senha precisa ter pelo menos 6 caracteres.");
-      } else if (error.code === "auth/invalid-credential" || error.code === "auth/wrong-password" || error.code === "auth/user-not-found") {
-        setAuthError("E-mail ou senha inválidos.");
+        setAuthError("A senha precisa conter no mínimo 6 caracteres.");
+      } else if (
+        error.code === "auth/invalid-credential" || 
+        error.code === "auth/wrong-password" || 
+        error.code === "auth/user-not-found"
+      ) {
+        setAuthError("E-mail ou senha incorretos.");
       } else {
-        setAuthError("Ocorreu um erro operacional. Tente novamente.");
+        setAuthError("Ocorreu um erro ao processar. Tente novamente.");
       }
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  // Método seguro para envio do e-mail de recuperação de senha
+  const handleForgotPassword = async () => {
+    setAuthError(null);
+    setAuthSuccess(null);
+
+    if (!email) {
+      setAuthError("Por favor, digite seu e-mail no campo acima primeiro.");
+      return;
+    }
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setAuthSuccess("E-mail de redefinição enviado! Cheque sua caixa de entrada.");
+    } catch (error: any) {
+      console.error("Erro no reset de senha:", error.code);
+      if (error.code === "auth/user-not-found" || error.code === "auth/invalid-email") {
+        setAuthError("Este endereço de e-mail não foi encontrado.");
+      } else {
+        setAuthError("Não foi possível enviar o e-mail de recuperação agora.");
+      }
     }
   };
 
@@ -147,7 +186,7 @@ export default function Login() {
         className="w-16 h-16 rounded-2xl shadow-lg shadow-emerald-500/20 mb-8"
       />
 
-      {/* FORMULÁRIO CONTROLADO (LOGIN OU CADASTRO) */}
+      {/* PAINEL DINÂMICO DE ACESSO */}
       {selectedRole ? (
         <div className="flex flex-col items-center w-full max-w-md animate-fade-in">
           <h1 className="text-2xl font-bold mb-2 text-center">
@@ -161,12 +200,19 @@ export default function Login() {
 
           <form onSubmit={handleAuthSubmit} className="w-full space-y-4 bg-[#1E293B]/60 p-6 rounded-2xl border border-white/10 shadow-xl">
             
+            {/* Alertas visuais de Erro ou Sucesso */}
             {authError && (
               <div className="p-3 bg-red-500/20 border border-red-500/40 text-red-400 rounded-lg text-xs font-medium text-center">
                 {authError}
               </div>
             )}
+            {authSuccess && (
+              <div className="p-3 bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 rounded-lg text-xs font-medium text-center">
+                {authSuccess}
+              </div>
+            )}
 
+            {/* Campo E-mail */}
             <div className="space-y-1.5">
               <label className="text-xs font-medium text-gray-400">E-mail</label>
               <div className="relative">
@@ -182,6 +228,7 @@ export default function Login() {
               </div>
             </div>
 
+            {/* Campo Senha */}
             <div className="space-y-1.5">
               <label className="text-xs font-medium text-gray-400">Senha</label>
               <div className="relative">
@@ -195,8 +242,23 @@ export default function Login() {
                   className="w-full pl-9 pr-3 py-2.5 bg-[#0F172A]/80 border border-white/10 rounded-lg text-sm text-[#F8FAFC] focus:outline-none focus:border-emerald-500/50 transition-colors"
                 />
               </div>
+
+              {/* Botão Esqueci Minha Senha (exibido apenas no modo Login) */}
+              {!isSignUpMode && (
+                <div className="text-right">
+                  <button
+                    type="button"
+                    onClick={handleForgotPassword}
+                    className="text-[11px] text-gray-500 hover:text-emerald-400 transition-colors cursor-pointer inline-flex items-center gap-1"
+                  >
+                    <KeyRound className="w-3 h-3" />
+                    Esqueceu sua senha?
+                  </button>
+                </div>
+              )}
             </div>
 
+            {/* Botão de Envio Principal */}
             <button 
               type="submit"
               disabled={isSubmitting}
@@ -215,13 +277,14 @@ export default function Login() {
               )}
             </button>
 
-            {/* O BOTÃO ALTERNADOR DE MODELO DE LOGIN / CRIAÇÃO DE CONTA */}
+            {/* Alternador de Modo (Login / Cadastro) */}
             <div className="text-center pt-2">
               <button
                 type="button"
                 onClick={() => {
                   setIsSignUpMode(!isSignUpMode);
                   setAuthError(null);
+                  setAuthSuccess(null);
                 }}
                 className="text-xs text-gray-400 hover:text-emerald-400 transition-colors cursor-pointer underline underline-offset-4"
               >
@@ -232,6 +295,7 @@ export default function Login() {
             </div>
           </form>
 
+          {/* Botão Voltar para seleção de perfis */}
           <button
             onClick={() => setSelectedRole(null)}
             className="mt-6 flex items-center gap-2 text-gray-400 hover:text-emerald-400 transition-colors text-sm cursor-pointer"
@@ -241,7 +305,7 @@ export default function Login() {
           </button>
         </div>
       ) : (
-        /* TELA DOS 3 CARDS ORIGINAIS */
+        /* TELA DOS 3 CARDS ORIGINAIS (Seleção de Perfil) */
         <div className="flex flex-col items-center w-full max-w-4xl">
           <h1 className="text-2xl md:text-3xl font-bold mb-2 text-center">
             Selecione seu Perfil de Acesso
