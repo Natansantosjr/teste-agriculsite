@@ -75,15 +75,14 @@ export default function Login() {
     // Salva no localStorage por garantia
     localStorage.setItem("selected_role", selectedRole);
 
- const uiConfig = {
+const uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function (authResult: any, redirectUrl: string) {
       const token = authResult.user.accessToken;
       localStorage.setItem("token", token);
       
       if (authResult.user && (!authResult.user.displayName || authResult.user.displayName !== selectedRole)) {
-        // Importe o 'updateProfile' de "firebase/auth" como vimos antes
-        updateProfile(authResult.user, {
+        authResult.user.updateProfile({
           displayName: selectedRole
         }).then(() => {
           navigate("/dashboard");
@@ -95,15 +94,15 @@ export default function Login() {
       return false; 
     },
   },
-  // Desativa o gerenciador de pop-ups automáticos do Chrome/Google One Tap
+  // 1. Desativa completamente o gerenciador de credenciais do Chrome / Firebase
   credentialHelper: firebaseui.auth.CredentialHelper.NONE,
   
+  // 2. A MUDANÇA ESTÁ AQUI DENTRO:
   signInOptions: [
     {
-      // O SEGREDO ESTÁ AQUI: Usamos a string de ID correta do FirebaseUI para e-mail/senha
       provider: 'password', 
       
-      // FORÇA o FirebaseUI a tratar como formulário clássico, pulando a verificação de e-mails do Google
+      // ISSO TRAVA O CHOOSER: Força o FirebaseUI a agir estritamente com o formulário de senha tradicional
       signInMethod: 'password', 
       
       requireDisplayName: false,
