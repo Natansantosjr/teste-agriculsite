@@ -75,22 +75,40 @@ export default function Login() {
     // Salva no localStorage por garantia
     localStorage.setItem("selected_role", selectedRole);
 
-  const uiConfig = {
-  signInSuccessUrl: '/dashboard',
-  // Evita que o FirebaseUI tente vincular contas automaticamente ou abra a caixa de diálogo
-  credentialHelper: 'none', 
-  signInOptions: [
-    {
-      provider: "emailLink", // ou firebase.auth.EmailAuthProvider.PROVIDER_ID dependendo de como está importado
-      // AQUI ESTÁ O SEGREDO: Força o método tradicional de E-mail e Senha puro
-      signInMethod: "password" 
-    }
-  ],
-  // Garante que o FirebaseUI não exiba telas intermediárias de validação de conta existente
-  callbacks: {
-    signInSuccessWithAuthResult: () => true,
-  }
-};
+ const uiConfig = {
+      callbacks: {
+        signInSuccessWithAuthResult: function (authResult: any, redirectUrl: string) {
+          const token = authResult.user.accessToken;
+          localStorage.setItem("token", token);
+          
+          if (authResult.user && (!authResult.user.displayName || authResult.user.displayName !== selectedRole)) {
+            authResult.user.updateProfile({
+              displayName: selectedRole
+            }).then(() => {
+              navigate("/dashboard");
+            });
+            return false;
+          }
+
+          navigate("/dashboard");
+          return false; 
+        },
+      },
+      // 1. Desativa completamente o gerenciador de credenciais do Chrome / Firebase
+      credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+      
+      // 2. Força o FirebaseUI a aceitar o e-mail sem tentar vincular com Google/Facebook antigos
+      signInOptions: [
+        {
+          provider: 'password', // Certifique-se de que está com aspas simples ou duplas padrão
+          requireDisplayName: false,
+          // Evita que o FirebaseUI tente buscar contas existentes no cache local:
+          disableSignUp: {
+            status: false
+          }
+        },
+      ],
+    };
    
 
     ui.reset();
