@@ -59,12 +59,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+ // ... resto dos seus states (user, profile, isLoading) acima
+
   useEffect(() => {
-    // Escuta em tempo real o login/logout do Firebase
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       setIsLoading(true);
       if (firebaseUser) {
-        // Usuário está logado no Firebase!
         const authUser: AuthUser = {
           id: firebaseUser.uid,
           email: firebaseUser.email || "",
@@ -72,15 +72,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         };
         
         setUser(authUser);
-        
-        // Configura o token nas requisições do seu backend antigo se necessário
         const token = await firebaseUser.getIdToken();
         localStorage.setItem("token", token);
         
-        // Carrega o perfil (ADM, GERENTE, FISCAL)
-        await loadProfile(authUser);
+        // Aqui é a linha 81 que deu o erro. Ela vai achar a função logo abaixo!
+        await loadProfile(authUser); 
       } else {
-        // Usuário deslogado
         setUser(null);
         setProfile(null);
         localStorage.removeItem("token");
@@ -88,24 +85,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setIsLoading(false);
     });
 
-    // Remove o listener ao desmontar o componente
     return () => unsubscribe();
   }, []);
 
- async function loadProfile(authUser: AuthUser) {
+  // COLE A FUNÇÃO EXATAMENTE AQUI (Logo após o término do useEffect):
+  async function loadProfile(authUser: AuthUser) {
     try {
-      // Forçamos o TypeScript a entender o retorno adicionando 'as any' no final da chamada
       const response = await withRetry(() =>
         client.entities.user_profiles.query({})
       ) as any;
       
       const items = response?.data?.items || [];
+      
       if (items.length > 0) {
         setProfile(items[0] as UserProfile);
       } else {
         const selectedRole = localStorage.getItem("selected_role") || "FISCAL";
         
-        // Adicionamos 'as any' aqui também para liberar o acesso ao createResponse.data
+        console.log(`Criando perfil novo no banco com o cargo: ${selectedRole}`);
+
         const createResponse = await withRetry(() =>
           client.entities.user_profiles.create({
             data: {
@@ -120,10 +118,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           localStorage.removeItem("selected_role");
         }
       }
-    } catch {
+    } catch (error) {
+      console.error("Erro ao carregar/criar perfil:", error);
       setProfile(null);
     }
   }
+
+  // ... abaixo continua com a function login(), logout(), etc.
+ 
 
   function login() {
     window.location.href = "/login";
