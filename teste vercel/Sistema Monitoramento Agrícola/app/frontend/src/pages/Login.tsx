@@ -12,13 +12,14 @@ import "firebaseui/dist/firebaseui.css";
 
 // 1. Substitua aqui com as credenciais que o console do Firebase te deu:
 const firebaseConfig = {
-apiKey: "AIzaSyD5G5KJneEy3nL1Yn6mjKItxnM_OaYFe2M",
-  authDomain: "agriculsite.firebaseapp.com",
-  projectId: "agriculsite",
-  storageBucket: "agriculsite.firebasestorage.app",
-  messagingSenderId: "963600091219",
-  appId: "1:963600091219:web:becda787ba4117b081dea6"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
+
 
 // Inicializa o Firebase garantindo que não vai duplicar a instância
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
