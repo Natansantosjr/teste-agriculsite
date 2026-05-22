@@ -5,7 +5,7 @@ import { useAuth } from "@/contexts/AuthContext";
 
 // Imports do Firebase e FirebaseUI
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
 
@@ -76,39 +76,43 @@ export default function Login() {
     localStorage.setItem("selected_role", selectedRole);
 
  const uiConfig = {
-      callbacks: {
-        signInSuccessWithAuthResult: function (authResult: any, redirectUrl: string) {
-          const token = authResult.user.accessToken;
-          localStorage.setItem("token", token);
-          
-          if (authResult.user && (!authResult.user.displayName || authResult.user.displayName !== selectedRole)) {
-            authResult.user.updateProfile({
-              displayName: selectedRole
-            }).then(() => {
-              navigate("/dashboard");
-            });
-            return false;
-          }
-
-          navigate("/dashboard");
-          return false; 
-        },
-      },
-      // 1. Desativa completamente o gerenciador de credenciais do Chrome / Firebase
-      credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+  callbacks: {
+    signInSuccessWithAuthResult: function (authResult: any, redirectUrl: string) {
+      const token = authResult.user.accessToken;
+      localStorage.setItem("token", token);
       
-      // 2. Força o FirebaseUI a aceitar o e-mail sem tentar vincular com Google/Facebook antigos
-      signInOptions: [
-        {
-          provider: 'password', // Certifique-se de que está com aspas simples ou duplas padrão
-          requireDisplayName: false,
-          // Evita que o FirebaseUI tente buscar contas existentes no cache local:
-          disableSignUp: {
-            status: false
-          }
-        },
-      ],
-    };
+      if (authResult.user && (!authResult.user.displayName || authResult.user.displayName !== selectedRole)) {
+        // Importe o 'updateProfile' de "firebase/auth" como vimos antes
+        updateProfile(authResult.user, {
+          displayName: selectedRole
+        }).then(() => {
+          navigate("/dashboard");
+        });
+        return false;
+      }
+
+      navigate("/dashboard");
+      return false; 
+    },
+  },
+  // Desativa o gerenciador de pop-ups automáticos do Chrome/Google One Tap
+  credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+  
+  signInOptions: [
+    {
+      // O SEGREDO ESTÁ AQUI: Usamos a string de ID correta do FirebaseUI para e-mail/senha
+      provider: 'password', 
+      
+      // FORÇA o FirebaseUI a tratar como formulário clássico, pulando a verificação de e-mails do Google
+      signInMethod: 'password', 
+      
+      requireDisplayName: false,
+      disableSignUp: {
+        status: false
+      }
+    },
+  ],
+};
    
 
     ui.reset();
