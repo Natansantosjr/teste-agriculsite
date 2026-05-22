@@ -1,127 +1,136 @@
-import { useAuth } from "@/contexts/AuthContext";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { User, Shield, Eye } from "lucide-react";
-
-const ROLE_PERMISSIONS: Record<string, string[]> = {
-  ADM: [
-    "Dashboard",
-    "Análise de Produção",
-    "Alertas",
-    "Predição IA",
-    "Dados Geoespaciais",
-    "Infraestrutura",
-    "Gerenciamento de Usuários",
-  ],
-  GERENTE: [
-    "Dashboard",
-    "Análise de Produção",
-    "Alertas",
-    "Predição IA",
-    "Dados Geoespaciais",
-  ],
-  FISCAL: ["Dashboard", "Alertas", "Predição IA"],
-};
+import { User, Mail, Shield, Save, Building2, BellRing } from "lucide-react";
 
 export default function UserProfile() {
-  const { user, role, isAuthenticated } = useAuth();
-
-  if (!isAuthenticated || !user) {
-    return (
-      <div className="p-6 flex items-center justify-center min-h-[60vh]">
-        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10 max-w-md w-full">
-          <CardContent className="p-8 text-center">
-            <User className="w-12 h-12 text-gray-500 mx-auto mb-4" />
-            <p className="text-gray-400 text-sm">
-              Faça login para visualizar seu perfil.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
-  const permissions = ROLE_PERMISSIONS[role] || ROLE_PERMISSIONS["FISCAL"];
-
-  function getRoleBadgeColor(r: string) {
-    switch (r) {
-      case "ADM":
-        return "bg-emerald-500/20 text-emerald-400 border-emerald-500/30";
-      case "GERENTE":
-        return "bg-blue-500/20 text-blue-400 border-blue-500/30";
-      default:
-        return "bg-amber-500/20 text-amber-400 border-amber-500/30";
-    }
-  }
+  const [name, setName] = useState("Natan Silva");
+  const [email, setEmail] = useState("natan@cambui.com.br");
+  const [role, setRole] = useState("Administrador Master");
+  const [company, setCompany] = useState("Fazenda Cambuí");
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6 overflow-x-hidden">
+      {/* Cabeçalho da Página */}
       <div>
-        <h1 className="text-2xl font-bold text-[#F8FAFC]">Meu Perfil</h1>
-        <p className="text-gray-400 text-sm mt-1">
-          Informações da conta e permissões de acesso
+        <h1 className="text-xl md:text-2xl font-bold text-[#F8FAFC]">Meu Perfil</h1>
+        <p className="text-gray-400 text-xs md:text-sm mt-1">
+          Gerencie suas informações cadastrais, credenciais de acesso e preferências do sistema Cambuí
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* User Info */}
-        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
-          <CardHeader>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        {/* Painel do Formulário de Dados (Ocupa 2 colunas no PC, 1 no celular) */}
+        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10 lg:col-span-2">
+          <CardHeader className="pb-3 border-b border-white/5">
             <CardTitle className="text-[#F8FAFC] text-sm font-medium flex items-center gap-2">
               <User className="w-4 h-4 text-emerald-400" />
-              Informações do Usuário
+              Informações Pessoais
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                <User className="w-8 h-8 text-emerald-400" />
-              </div>
-              <div>
-                <p className="text-[#F8FAFC] font-medium">
-                  {user.name || "Usuário"}
-                </p>
-                <p className="text-gray-400 text-sm">{user.email}</p>
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-white/10 space-y-3">
-              <div className="flex justify-between items-center">
-                <span className="text-xs text-gray-400">Função</span>
-                <Badge className={`${getRoleBadgeColor(role)}`}>{role}</Badge>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-xs text-gray-400">ID</span>
-                <span className="text-xs text-gray-300 font-mono">
-                  {user.id.slice(0, 8)}...
-                </span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Permissions */}
-        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
-          <CardHeader>
-            <CardTitle className="text-[#F8FAFC] text-sm font-medium flex items-center gap-2">
-              <Shield className="w-4 h-4 text-emerald-400" />
-              Permissões de Acesso
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-2">
-              {permissions.map((perm) => (
-                <div
-                  key={perm}
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#0F172A] border border-white/5"
-                >
-                  <Eye className="w-3.5 h-3.5 text-emerald-400" />
-                  <span className="text-xs text-[#F8FAFC]">{perm}</span>
+          <CardContent className="p-4 md:p-6 space-y-4">
+            
+            {/* GRID DO FORMULÁRIO: 1 coluna no telemóvel, 2 colunas no PC */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-gray-400 flex items-center gap-1">
+                  Nome Completo
+                </label>
+                <div className="relative">
+                  <User className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                  <input 
+                    type="text" 
+                    value={name} 
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full pl-9 pr-3 py-2 bg-[#0F172A]/60 border border-white/10 rounded-lg text-sm text-[#F8FAFC] focus:outline-none focus:border-emerald-500/50 transition-colors"
+                  />
                 </div>
-              ))}
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-gray-400 flex items-center gap-1">
+                  E-mail Corporativo
+                </label>
+                <div className="relative">
+                  <Mail className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                  <input 
+                    type="email" 
+                    value={email} 
+                    disabled
+                    className="w-full pl-9 pr-3 py-2 bg-[#0F172A]/30 border border-white/5 rounded-lg text-sm text-gray-500 cursor-not-allowed"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-gray-400 flex items-center gap-1">
+                  Empresa / Organização
+                </label>
+                <div className="relative">
+                  <Building2 className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                  <input 
+                    type="text" 
+                    value={company} 
+                    disabled
+                    className="w-full pl-9 pr-3 py-2 bg-[#0F172A]/30 border border-white/5 rounded-lg text-sm text-gray-500 cursor-not-allowed"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-gray-400 flex items-center gap-1">
+                  Nível de Acesso
+                </label>
+                <div className="relative">
+                  <Shield className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                  <input 
+                    type="text" 
+                    value={role} 
+                    disabled
+                    className="w-full pl-9 pr-3 py-2 bg-[#0F172A]/30 border border-white/5 rounded-lg text-sm text-gray-500 cursor-not-allowed"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Linha divisória interna */}
+            <div className="border-t border-white/5 pt-4 flex justify-end">
+              <button className="w-full sm:w-auto px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-medium rounded-lg flex items-center justify-center gap-2 transition-colors shadow-lg shadow-emerald-500/10">
+                <Save className="w-4 h-4" />
+                Salvar Alterações
+              </button>
+            </div>
+
+          </CardContent>
+        </Card>
+
+        {/* Card Lateral de Preferências (1 coluna no PC, empilha no celular) */}
+        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
+          <CardHeader className="pb-3 border-b border-white/5">
+            <CardTitle className="text-[#F8FAFC] text-sm font-medium flex items-center gap-2">
+              <BellRing className="w-4 h-4 text-emerald-400" />
+              Preferências do Sistema
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="p-4 space-y-4 text-sm">
+            <div className="flex items-center justify-between p-2 bg-[#0F172A]/40 rounded-lg border border-white/5">
+              <div className="space-y-0.5">
+                <p className="text-xs font-medium text-gray-300">Alertas Críticos no WhatsApp</p>
+                <p className="text-[10px] text-gray-500">Notificar estresse hídrico grave</p>
+              </div>
+              <input type="checkbox" defaultChecked className="accent-emerald-500 h-4 w-4 cursor-pointer" />
+            </div>
+
+            <div className="flex items-center justify-between p-2 bg-[#0F172A]/40 rounded-lg border border-white/5">
+              <div className="space-y-0.5">
+                <p className="text-xs font-medium text-gray-300">Relatórios Mensais</p>
+                <p className="text-[10px] text-gray-500">Enviar sumário de NDVI por e-mail</p>
+              </div>
+              <input type="checkbox" defaultChecked className="accent-emerald-500 h-4 w-4 cursor-pointer" />
             </div>
           </CardContent>
         </Card>
+
       </div>
     </div>
   );

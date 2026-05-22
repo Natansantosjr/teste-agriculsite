@@ -1,168 +1,133 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Server, Database, Cpu, Cloud, Satellite, BarChart3, Shield, Zap } from "lucide-react";
+import { Wifi, Cpu, Database, Signal, Activity, Server, Zap, HardDrive } from "lucide-react";
 
-interface ComponentStatus {
-  name: string;
-  status: "online" | "degraded" | "offline";
-  uptime: string;
-  icon: React.ElementType;
-}
-
-const systemComponents: ComponentStatus[] = [
-  { name: "Ingestão Satelital", status: "online", uptime: "99.97%", icon: Satellite },
-  { name: "Pipeline ETL", status: "online", uptime: "99.84%", icon: Zap },
-  { name: "Banco de Dados", status: "online", uptime: "99.99%", icon: Database },
-  { name: "Motor de IA/ML", status: "degraded", uptime: "98.2%", icon: Cpu },
-  { name: "API Gateway", status: "online", uptime: "99.95%", icon: Cloud },
-  { name: "Dashboard Frontend", status: "online", uptime: "99.99%", icon: BarChart3 },
-  { name: "Módulo de Segurança", status: "online", uptime: "99.99%", icon: Shield },
-  { name: "Serviço de Alertas", status: "online", uptime: "99.91%", icon: Server },
+// Dados fictícios da infraestrutura tecnológica da fazenda
+const devices = [
+  { id: "G-01", name: "Gateway Central", type: "Roteador LoraWAN", status: "Online", signal: 92, uptime: "14d 5h" },
+  { id: "S-102", name: "Sensor de Solo NPK", type: "Sonda IoT", status: "Online", signal: 78, uptime: "42d 1h" },
+  { id: "S-105", name: "Estação Meteorológica", type: "Davis Vantage", status: "Manutenção", signal: 45, uptime: "0d 0h" },
+  { id: "C-08", name: "Câmera Monitoramento", type: "IP Cam 4K", status: "Online", signal: 85, uptime: "3d 12h" },
 ];
-
-const techStack = [
-  { category: "Dados Satelitais", items: ["Sentinel-2", "MODIS", "Landsat-8", "CBERS-4A"] },
-  { category: "Processamento", items: ["Apache Spark", "Dask", "GDAL", "Rasterio"] },
-  { category: "Machine Learning", items: ["TensorFlow", "XGBoost", "Scikit-learn", "PyTorch"] },
-  { category: "Infraestrutura", items: ["Kubernetes", "PostgreSQL/PostGIS", "Redis", "MinIO"] },
-  { category: "Monitoramento", items: ["Grafana", "Prometheus", "ELK Stack", "Jaeger"] },
-];
-
-function getStatusBadge(status: string) {
-  switch (status) {
-    case "online":
-      return <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs">Online</Badge>;
-    case "degraded":
-      return <Badge className="bg-amber-500/20 text-amber-400 border-amber-500/30 text-xs">Degradado</Badge>;
-    default:
-      return <Badge className="bg-red-500/20 text-red-400 border-red-500/30 text-xs">Offline</Badge>;
-  }
-}
-
-function getStatusDot(status: string) {
-  switch (status) {
-    case "online":
-      return "bg-emerald-400";
-    case "degraded":
-      return "bg-amber-400";
-    default:
-      return "bg-red-400";
-  }
-}
 
 export default function Infrastructure() {
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6 overflow-x-hidden">
+      {/* Cabeçalho */}
       <div>
-        <h1 className="text-2xl font-bold text-[#F8FAFC]">Infraestrutura do Sistema</h1>
-        <p className="text-gray-400 text-sm mt-1">
-          Arquitetura, status dos componentes e stack tecnológico
+        <h1 className="text-xl md:text-2xl font-bold text-[#F8FAFC] flex items-center gap-2">
+          <Database className="w-6 h-6 text-blue-400" />
+          Infraestrutura & Dispositivos IoT
+        </h1>
+        <p className="text-gray-400 text-xs md:text-sm mt-1">
+          Monitoramento de telemetria, integridade de hardware e latência de rede em tempo real.
         </p>
       </div>
 
-      {/* Architecture Diagram */}
-      <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-[#F8FAFC] text-sm font-medium">
-            Arquitetura do Pipeline
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap items-center justify-center gap-2 py-6">
-            {/* Pipeline Steps */}
-            <div className="flex flex-col items-center p-4 rounded-lg bg-blue-500/10 border border-blue-500/20 w-32">
-              <Satellite className="w-8 h-8 text-blue-400 mb-2" />
-              <span className="text-xs text-blue-300 text-center">Satélites</span>
-              <span className="text-[10px] text-gray-500">Sentinel/MODIS</span>
+      {/* Grid de Status Geral - 1 coluna no celular, 4 no PC */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
+          <CardContent className="p-4 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+              <Server className="w-5 h-5" />
             </div>
-            <div className="text-emerald-400 text-xl">→</div>
-            <div className="flex flex-col items-center p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20 w-32">
-              <Zap className="w-8 h-8 text-emerald-400 mb-2" />
-              <span className="text-xs text-emerald-300 text-center">ETL Pipeline</span>
-              <span className="text-[10px] text-gray-500">Spark/Dask</span>
+            <div>
+              <p className="text-[10px] uppercase tracking-wider text-gray-500">Servidores</p>
+              <p className="text-sm font-bold text-[#F8FAFC]">100% Estável</p>
             </div>
-            <div className="text-emerald-400 text-xl">→</div>
-            <div className="flex flex-col items-center p-4 rounded-lg bg-purple-500/10 border border-purple-500/20 w-32">
-              <Database className="w-8 h-8 text-purple-400 mb-2" />
-              <span className="text-xs text-purple-300 text-center">Data Lake</span>
-              <span className="text-[10px] text-gray-500">PostGIS/MinIO</span>
-            </div>
-            <div className="text-emerald-400 text-xl">→</div>
-            <div className="flex flex-col items-center p-4 rounded-lg bg-amber-500/10 border border-amber-500/20 w-32">
-              <Cpu className="w-8 h-8 text-amber-400 mb-2" />
-              <span className="text-xs text-amber-300 text-center">Motor IA/ML</span>
-              <span className="text-[10px] text-gray-500">TensorFlow</span>
-            </div>
-            <div className="text-emerald-400 text-xl">→</div>
-            <div className="flex flex-col items-center p-4 rounded-lg bg-red-500/10 border border-red-500/20 w-32">
-              <Shield className="w-8 h-8 text-red-400 mb-2" />
-              <span className="text-xs text-red-300 text-center">Análise Fiscal</span>
-              <span className="text-[10px] text-gray-500">Cruzamento</span>
-            </div>
-            <div className="text-emerald-400 text-xl">→</div>
-            <div className="flex flex-col items-center p-4 rounded-lg bg-cyan-500/10 border border-cyan-500/20 w-32">
-              <BarChart3 className="w-8 h-8 text-cyan-400 mb-2" />
-              <span className="text-xs text-cyan-300 text-center">Dashboard</span>
-              <span className="text-[10px] text-gray-500">React/Recharts</span>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
 
-      {/* Component Status */}
-      <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-[#F8FAFC] text-sm font-medium">
-            Status dos Componentes
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-            {systemComponents.map((comp) => {
-              const Icon = comp.icon;
-              return (
-                <div
-                  key={comp.name}
-                  className="p-3 rounded-lg bg-[#0F172A] border border-white/5 flex items-center gap-3"
-                >
-                  <div className="relative">
-                    <Icon className="w-5 h-5 text-gray-400" />
-                    <div className={`absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full ${getStatusDot(comp.status)} animate-pulse`} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xs text-[#F8FAFC] truncate">{comp.name}</p>
-                    <div className="flex items-center gap-2 mt-0.5">
-                      {getStatusBadge(comp.status)}
-                      <span className="text-[10px] text-gray-500 font-mono">{comp.uptime}</span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </CardContent>
-      </Card>
+        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
+          <CardContent className="p-4 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+              <Zap className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-wider text-gray-500">Nós Ativos</p>
+              <p className="text-sm font-bold text-[#F8FAFC]">128 Online</p>
+            </div>
+          </CardContent>
+        </Card>
 
-      {/* Technology Stack */}
-      <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-[#F8FAFC] text-sm font-medium">
-            Stack Tecnológico
+        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
+          <CardContent className="p-4 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400">
+              <Wifi className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-wider text-gray-500">Cobertura</p>
+              <p className="text-sm font-bold text-[#F8FAFC]">94% da Área</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
+          <CardContent className="p-4 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+              <HardDrive className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-wider text-gray-500">Armazenamento</p>
+              <p className="text-sm font-bold text-[#F8FAFC]">1.2 TB livre</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Lista de Dispositivos - Tabela Responsiva */}
+      <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10 overflow-hidden">
+        <CardHeader className="pb-3 border-b border-white/5">
+          <CardTitle className="text-[#F8FAFC] text-sm font-medium flex items-center gap-2">
+            <Cpu className="w-4 h-4 text-blue-400" />
+            Inventário de Dispositivos de Campo
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-            {techStack.map((tech) => (
-              <div key={tech.category} className="p-3 rounded-lg bg-[#0F172A] border border-white/5">
-                <p className="text-xs text-emerald-400 font-medium mb-2">{tech.category}</p>
-                <div className="space-y-1">
-                  {tech.items.map((item) => (
-                    <p key={item} className="text-xs text-gray-300">{item}</p>
-                  ))}
-                </div>
-              </div>
-            ))}
+        <CardContent className="p-0">
+          
+          {/* DIV DE CONTROLE DE ROLAGEM PARA TEBELA TÉCNICA */}
+          <div className="overflow-x-auto w-full">
+            <table className="min-w-[650px] md:min-w-full text-left text-xs text-gray-300">
+              <thead className="bg-[#0F172A] text-gray-400">
+                <tr>
+                  <th className="px-4 py-3 md:px-6">ID / Nome</th>
+                  <th className="px-4 py-3 md:px-6">Tipo</th>
+                  <th className="px-4 py-3 md:px-6">Sinal</th>
+                  <th className="px-4 py-3 md:px-6">Uptime</th>
+                  <th className="px-4 py-3 md:px-6 text-center">Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/5 font-mono">
+                {devices.map((device) => (
+                  <tr key={device.id} className="hover:bg-white/[0.02]">
+                    <td className="px-4 py-4 md:px-6">
+                      <p className="font-bold text-[#F8FAFC] font-sans">{device.name}</p>
+                      <span className="text-[10px] text-gray-600">{device.id}</span>
+                    </td>
+                    <td className="px-4 py-4 md:px-6 text-gray-400 font-sans">{device.type}</td>
+                    <td className="px-4 py-4 md:px-6">
+                      <div className="flex items-center gap-2">
+                        <Signal className={`w-3 h-3 ${device.signal > 70 ? 'text-emerald-400' : 'text-amber-400'}`} />
+                        <span>{device.signal}%</span>
+                        <div className="w-12 h-1 bg-slate-800 rounded-full hidden xs:block">
+                          <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${device.signal}%` }}></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-4 py-4 md:px-6 text-gray-500">{device.uptime}</td>
+                    <td className="px-4 py-4 md:px-6 text-center">
+                      <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-bold ${
+                        device.status === "Online" ? "bg-emerald-500/10 text-emerald-400" : "bg-amber-500/10 text-amber-400"
+                      }`}>
+                        <Activity className="w-3 h-3" />
+                        {device.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
+
         </CardContent>
       </Card>
     </div>

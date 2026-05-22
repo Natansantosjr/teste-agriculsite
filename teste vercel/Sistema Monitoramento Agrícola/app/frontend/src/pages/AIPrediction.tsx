@@ -1,346 +1,133 @@
-import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { Brain, AlertTriangle, CheckCircle, Activity } from "lucide-react";
-import { client } from "@/lib/api";
-import { toast } from "sonner";
+import { Brain, TrendingUp, Sparkles, Calendar, Target, AlertCircle } from "lucide-react";
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 
-interface PredictionResult {
-  producaoEstimada: number;
-  anomalyScore: number;
-  riskLevel: "ALTO" | "MÉDIO" | "BAIXO";
-  confianca: number;
-  analise?: string;
-}
+// Dados simulados da inteligência artificial para previsão de safra (Sacas por Hectare)
+const predictionData = [
+  { ano: "2021", real: 58, predito: 56 },
+  { ano: "2022", real: 62, predito: 60 },
+  { ano: "2023", real: 59, predito: 61 },
+  { ano: "2024", real: 65, predito: 64 },
+  { ano: "2025", real: 68, predito: 67 },
+  { ano: "2026 (Prev)", real: null, predito: 72 }, // Ano atual/futuro
+];
 
 export default function AIPrediction() {
-  const [formData, setFormData] = useState({
-    ndvi: "0.72",
-    precipitacao: "145",
-    temperatura: "26.5",
-    umidadeSolo: "38",
-    area: "1200",
-    producaoDeclarada: "4800",
-    cultura: "Soja",
-    municipio: "Cambuí",
-    estado: "MG",
-  });
-
-  const [result, setResult] = useState<PredictionResult | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  const handlePredict = async () => {
-    setLoading(true);
-    try {
-      const response = await client.apiCall.invoke({
-        url: "/api/v1/prediction/analyze",
-        method: "POST",
-        data: {
-          ndvi: parseFloat(formData.ndvi),
-          precipitacao: parseFloat(formData.precipitacao),
-          temperatura: parseFloat(formData.temperatura),
-          umidade_solo: parseFloat(formData.umidadeSolo),
-          area: parseFloat(formData.area),
-          producao_declarada: parseFloat(formData.producaoDeclarada),
-          cultura: formData.cultura,
-          municipio: formData.municipio,
-          estado: formData.estado,
-        },
-      });
-
-      const data = response?.data;
-      if (data) {
-        setResult({
-          producaoEstimada: data.producao_estimada ?? data.producaoEstimada ?? 0,
-          anomalyScore: data.anomaly_score ?? data.anomalyScore ?? 0,
-          riskLevel: data.risk_level ?? data.riskLevel ?? "BAIXO",
-          confianca: data.confianca ?? data.confidence ?? 90,
-          analise: data.analise ?? data.analysis ?? "",
-        });
-        toast.success("Predição realizada com sucesso!");
-      } else {
-        toast.error("Resposta inválida do servidor.");
-      }
-    } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : "Erro ao executar predição";
-      toast.error(message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
-  function getRiskColor(level: string) {
-    switch (level) {
-      case "ALTO":
-        return "text-red-400";
-      case "MÉDIO":
-        return "text-amber-400";
-      default:
-        return "text-emerald-400";
-    }
-  }
-
-  function getRiskBg(level: string) {
-    switch (level) {
-      case "ALTO":
-        return "bg-red-500/20 border-red-500/30";
-      case "MÉDIO":
-        return "bg-amber-500/20 border-amber-500/30";
-      default:
-        return "bg-emerald-500/20 border-emerald-500/30";
-    }
-  }
-
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6 overflow-x-hidden">
+      {/* Cabeçalho */}
       <div>
-        <h1 className="text-2xl font-bold text-[#F8FAFC]">
-          Predição por Inteligência Artificial
+        <h1 className="text-xl md:text-2xl font-bold text-[#F8FAFC] flex items-center gap-2">
+          <Brain className="w-6 h-6 text-indigo-400" />
+          Previsão Preditiva por IA
         </h1>
-        <p className="text-gray-400 text-sm mt-1">
-          Modelo de machine learning para estimativa de produção e detecção de
-          anomalias
+        <p className="text-gray-400 text-xs md:text-sm mt-1">
+          Análise de machine learning cruzando dados históricos de colheita, telemetria de satélite e tendências climáticas
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Input Form */}
+      {/* Grid de Métricas de Confiança da IA - 1 coluna no celular, 3 no PC */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
-          <CardHeader>
-            <CardTitle className="text-[#F8FAFC] text-sm font-medium flex items-center gap-2">
-              <Brain className="w-4 h-4 text-emerald-400" />
-              Parâmetros de Entrada
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="text-xs text-gray-400 mb-1 block">
-                  NDVI (0-1)
-                </label>
-                <Input
-                  value={formData.ndvi}
-                  onChange={(e) => handleChange("ndvi", e.target.value)}
-                  className="bg-[#0F172A] border-white/10 text-[#F8FAFC] font-mono"
-                  type="number"
-                  step="0.01"
-                />
-              </div>
-              <div>
-                <label className="text-xs text-gray-400 mb-1 block">
-                  Precipitação (mm)
-                </label>
-                <Input
-                  value={formData.precipitacao}
-                  onChange={(e) => handleChange("precipitacao", e.target.value)}
-                  className="bg-[#0F172A] border-white/10 text-[#F8FAFC] font-mono"
-                  type="number"
-                />
-              </div>
-              <div>
-                <label className="text-xs text-gray-400 mb-1 block">
-                  Temperatura (°C)
-                </label>
-                <Input
-                  value={formData.temperatura}
-                  onChange={(e) => handleChange("temperatura", e.target.value)}
-                  className="bg-[#0F172A] border-white/10 text-[#F8FAFC] font-mono"
-                  type="number"
-                  step="0.1"
-                />
-              </div>
-              <div>
-                <label className="text-xs text-gray-400 mb-1 block">
-                  Umidade do Solo (%)
-                </label>
-                <Input
-                  value={formData.umidadeSolo}
-                  onChange={(e) => handleChange("umidadeSolo", e.target.value)}
-                  className="bg-[#0F172A] border-white/10 text-[#F8FAFC] font-mono"
-                  type="number"
-                />
-              </div>
-              <div>
-                <label className="text-xs text-gray-400 mb-1 block">
-                  Área (hectares)
-                </label>
-                <Input
-                  value={formData.area}
-                  onChange={(e) => handleChange("area", e.target.value)}
-                  className="bg-[#0F172A] border-white/10 text-[#F8FAFC] font-mono"
-                  type="number"
-                />
-              </div>
-              <div>
-                <label className="text-xs text-gray-400 mb-1 block">
-                  Produção Declarada (ton)
-                </label>
-                <Input
-                  value={formData.producaoDeclarada}
-                  onChange={(e) =>
-                    handleChange("producaoDeclarada", e.target.value)
-                  }
-                  className="bg-[#0F172A] border-white/10 text-[#F8FAFC] font-mono"
-                  type="number"
-                />
-              </div>
-              <div>
-                <label className="text-xs text-gray-400 mb-1 block">
-                  Cultura
-                </label>
-                <Input
-                  value={formData.cultura}
-                  onChange={(e) => handleChange("cultura", e.target.value)}
-                  className="bg-[#0F172A] border-white/10 text-[#F8FAFC]"
-                  placeholder="Ex: Soja, Milho, Café"
-                />
-              </div>
-              <div>
-                <label className="text-xs text-gray-400 mb-1 block">
-                  Município
-                </label>
-                <Input
-                  value={formData.municipio}
-                  onChange={(e) => handleChange("municipio", e.target.value)}
-                  className="bg-[#0F172A] border-white/10 text-[#F8FAFC]"
-                  placeholder="Ex: Cambuí"
-                />
-              </div>
-              <div className="col-span-2">
-                <label className="text-xs text-gray-400 mb-1 block">
-                  Estado
-                </label>
-                <Input
-                  value={formData.estado}
-                  onChange={(e) => handleChange("estado", e.target.value)}
-                  className="bg-[#0F172A] border-white/10 text-[#F8FAFC]"
-                  placeholder="Ex: MG, SP, GO"
-                />
-              </div>
+          <CardContent className="p-4 flex items-center gap-4">
+            <div className="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400 shrink-0">
+              <Target className="w-6 h-6" />
             </div>
-            <Button
-              onClick={handlePredict}
-              disabled={loading}
-              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
-            >
-              {loading ? (
-                <span className="flex items-center gap-2">
-                  <Activity className="w-4 h-4 animate-spin" />
-                  Processando...
-                </span>
-              ) : (
-                <span className="flex items-center gap-2">
-                  <Brain className="w-4 h-4" />
-                  Executar Predição
-                </span>
-              )}
-            </Button>
+            <div>
+              <p className="text-xs text-gray-400">Acurácia do Modelo</p>
+              <p className="text-lg font-bold text-[#F8FAFC] font-mono">94.8%</p>
+            </div>
           </CardContent>
         </Card>
 
-        {/* Results Panel */}
         <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
-          <CardHeader>
-            <CardTitle className="text-[#F8FAFC] text-sm font-medium">
-              Resultado da Análise
+          <CardContent className="p-4 flex items-center gap-4">
+            <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
+              <TrendingUp className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="text-xs text-gray-400">Produtividade Estimada</p>
+              <p className="text-lg font-bold text-[#F8FAFC] font-mono">72 sc/ha</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10">
+          <CardContent className="p-4 flex items-center gap-4">
+            <div className="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
+              <Calendar className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="text-xs text-gray-400">Janela Ideal de Colheita</p>
+              <p className="text-sm font-semibold text-[#F8FAFC]">05 a 18 de Junho</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Seção do Gráfico e Insights - Empilha no mobile (1 coluna) e divide no PC */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        {/* Gráfico de Tendência (Ocupa 2 colunas no PC) */}
+        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10 lg:col-span-2">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-[#F8FAFC] text-sm font-medium flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-indigo-400" />
+              Projeção de Rendimento Histórico vs Futuro (Sacas/Hectare)
             </CardTitle>
           </CardHeader>
           <CardContent>
-            {!result ? (
-              <div className="h-64 flex items-center justify-center text-gray-500">
-                <div className="text-center">
-                  <Brain className="w-12 h-12 mx-auto mb-3 opacity-30" />
-                  <p className="text-sm">
-                    Execute a predição para ver os resultados
-                  </p>
-                </div>
-              </div>
-            ) : (
-              <div className="space-y-6">
-                {/* Estimated Production */}
-                <div className="p-4 rounded-lg bg-[#0F172A] border border-white/10">
-                  <p className="text-xs text-gray-400 mb-1">
-                    Produção Estimada (IA)
-                  </p>
-                  <p className="text-3xl font-bold text-emerald-400 font-mono">
-                    {result.producaoEstimada.toLocaleString()} ton
-                  </p>
-                </div>
-
-                {/* Anomaly Score Gauge */}
-                <div className="p-4 rounded-lg bg-[#0F172A] border border-white/10">
-                  <p className="text-xs text-gray-400 mb-3">Anomaly Score</p>
-                  <div className="relative h-4 bg-gray-700 rounded-full overflow-hidden">
-                    <div
-                      className={`h-full rounded-full transition-all duration-1000 ${
-                        result.anomalyScore > 70
-                          ? "bg-red-500"
-                          : result.anomalyScore > 40
-                          ? "bg-amber-500"
-                          : "bg-emerald-500"
-                      }`}
-                      style={{ width: `${result.anomalyScore}%` }}
+            {/* Div protetora contra esmagamento de gráficos no mobile */}
+            <div className="h-64 md:h-80 overflow-x-auto w-full">
+              <div className="h-full min-w-[450px] md:min-w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={predictionData} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+                    <XAxis dataKey="ano" stroke="#94A3B8" fontSize={11} />
+                    <YAxis stroke="#94A3B8" fontSize={11} domain={[40, 80]} />
+                    <Tooltip 
+                      contentStyle={{ backgroundColor: "#1E293B", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "8px" }}
+                      labelStyle={{ color: "#F8FAFC" }}
                     />
-                  </div>
-                  <div className="flex justify-between mt-2">
-                    <span className="text-xs text-gray-500">0</span>
-                    <span
-                      className={`text-lg font-bold font-mono ${getRiskColor(result.riskLevel)}`}
-                    >
-                      {result.anomalyScore}
-                    </span>
-                    <span className="text-xs text-gray-500">100</span>
-                  </div>
-                </div>
-
-                {/* Risk Level & Confidence */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div
-                    className={`p-4 rounded-lg border ${getRiskBg(result.riskLevel)}`}
-                  >
-                    <p className="text-xs text-gray-400 mb-1">Nível de Risco</p>
-                    <div className="flex items-center gap-2">
-                      {result.riskLevel === "ALTO" ? (
-                        <AlertTriangle className="w-5 h-5 text-red-400" />
-                      ) : (
-                        <CheckCircle
-                          className={`w-5 h-5 ${getRiskColor(result.riskLevel)}`}
-                        />
-                      )}
-                      <Badge
-                        className={`${getRiskBg(result.riskLevel)} ${getRiskColor(result.riskLevel)}`}
-                      >
-                        {result.riskLevel}
-                      </Badge>
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
-                    <p className="text-xs text-gray-400 mb-1">Confiança</p>
-                    <p className="text-2xl font-bold text-blue-400 font-mono">
-                      {result.confianca}%
-                    </p>
-                  </div>
-                </div>
-
-                {/* AI Analysis Text */}
-                {result.analise && (
-                  <div className="p-4 rounded-lg bg-[#0F172A] border border-white/10">
-                    <p className="text-xs text-gray-400 mb-2">Análise IA</p>
-                    <p className="text-sm text-[#F8FAFC] leading-relaxed whitespace-pre-wrap">
-                      {result.analise}
-                    </p>
-                  </div>
-                )}
+                    <Legend wrapperStyle={{ fontSize: '12px' }} />
+                    <Line type="monotone" dataKey="real" stroke="#10B981" strokeWidth={2} name="Rendimento Real" dot={{ r: 4 }} />
+                    <Line type="monotone" dataKey="predito" stroke="#6366F1" strokeWidth={2} strokeDasharray="5 5" name="Previsão da IA" dot={{ r: 4 }} />
+                  </LineChart>
+                </ResponsiveContainer>
               </div>
-            )}
+            </div>
           </CardContent>
         </Card>
+
+        {/* Card de Insights de IA (Ocupa 1 coluna no PC) */}
+        <Card className="bg-[#1E293B]/80 backdrop-blur border-white/10 flex flex-col">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-[#F8FAFC] text-sm font-medium flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-indigo-400" />
+              Insights Cognitivos
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 flex-1 flex flex-col justify-center">
+            <div className="p-3 bg-indigo-500/5 rounded-lg border border-indigo-500/10 space-y-1">
+              <p className="text-xs font-semibold text-indigo-400 flex items-center gap-1">
+                <Sparkles className="w-3 h-3" /> Tendência de Alta
+              </p>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                O modelo indica um aumento de 5.8% na produtividade do Talhão Norte devido aos índices de umidade acumulados e estabilidade climática.
+              </p>
+            </div>
+
+            <div className="p-3 bg-amber-500/5 rounded-lg border border-amber-500/10 space-y-1">
+              <p className="text-xs font-semibold text-amber-400 flex items-center gap-1">
+                <AlertCircle className="w-3 h-3" /> Recomendação Operacional
+              </p>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                Antecipar a aplicação de nutrientes em 3 dias reduz o risco de perda foliar projetado pelos modelos de estresse térmico para o final do mês.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
       </div>
     </div>
   );
