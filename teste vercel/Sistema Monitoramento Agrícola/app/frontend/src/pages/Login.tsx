@@ -183,7 +183,7 @@ export default function Login() {
       <img
         src="/assets/cambui-logo.png"
         alt="Cambuí Online"
-        className="w-16 h-16 rounded-2xl shadow-lg shadow-emerald-500/20 mb-8"
+        className="w-16 h-16 object-contain rounded-2xl shadow-lg shadow-emerald-500/20 mb-8"
       />
 
       {/* PAINEL DINÂMICO DE ACESSO */}
