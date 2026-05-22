@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
-import { Shield, Users, ClipboardCheck, ArrowLeft } from "lucide-react";
+import { Shield, Users, ClipboardCheck, ArrowLeft, Mail, Lock, UserPlus, LogIn } from "lucide-react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 
-// Imports do Firebase e FirebaseUI
+// Imports do Firebase
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth, updateProfile } from "firebase/auth";
-import * as firebaseui from "firebaseui";
-import "firebaseui/dist/firebaseui.css";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
-
-// 1. Substitua aqui com as credenciais que o console do Firebase te deu:
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -20,8 +16,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-
-// Inicializa o Firebase garantindo que não vai duplicar a instância
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 const auth = getAuth(app);
 
@@ -54,69 +48,80 @@ const roles: RoleCard[] = [
 ];
 
 export default function Login() {
- const navigate = useNavigate();
+  const navigate = useNavigate();
   const { isAuthenticated, isLoading } = useAuth();
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
+  
+  // Estados do formulário
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [authError, setAuthError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // ESTADO CHAVE: Define se a tela está em modo LOGIN ou modo CADASTRO
+  const [isSignUpMode, setIsSignUpMode] = useState(false);
 
   const handleRoleSelect = (role: string) => {
-    // Força o salvamento imediato no navegador
     localStorage.setItem("selected_role", role);
     setSelectedRole(role);
+    setAuthError(null);
+    setIsSignUpMode(false); // Sempre inicia em modo login ao escolher o perfil
   };
 
- useEffect(() => {
-    const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
+  // Processa o envio do formulário baseado no modo atual
+  const handleAuthSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setAuthError(null);
+    setIsSubmitting(true);
 
-    if (!selectedRole) {
-      ui.reset(); 
-      return;
-    }
+    try {
+      if (isSignUpMode) {
+        // ==========================================
+        // FLUXO DE CRIAÇÃO DE CONTA (CADASTRO)
+        // ==========================================
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const token = (userCredential.user as any).accessToken;
+        localStorage.setItem("token", token);
 
-    // Salva no localStorage por garantia
-    localStorage.setItem("selected_role", selectedRole);
-
-const uiConfig = {
-  callbacks: {
-    signInSuccessWithAuthResult: function (authResult: any, redirectUrl: string) {
-      const token = authResult.user.accessToken;
-      localStorage.setItem("token", token);
-      
-      if (authResult.user && (!authResult.user.displayName || authResult.user.displayName !== selectedRole)) {
-        authResult.user.updateProfile({
+        // Injeta a função selecionada no perfil do usuário
+        await updateProfile(userCredential.user, {
           displayName: selectedRole
-        }).then(() => {
-          navigate("/dashboard");
         });
-        return false;
-      }
 
-      navigate("/dashboard");
-      return false; 
-    },
-  },
-  // 1. Desativa completamente o gerenciador de credenciais do Chrome / Firebase
-  credentialHelper: firebaseui.auth.CredentialHelper.NONE,
-  
-  // 2. A MUDANÇA ESTÁ AQUI DENTRO:
-  signInOptions: [
-    {
-      provider: 'password', 
-      
-      // ISSO TRAVA O CHOOSER: Força o FirebaseUI a agir estritamente com o formulário de senha tradicional
-      signInMethod: 'password', 
-      
-      requireDisplayName: false,
-      disableSignUp: {
-        status: false
-      }
-    },
-  ],
-};
-   
+        navigate("/dashboard");
+      } else {
+        // ==========================================
+        // FLUXO DE LOGIN TRADICIONAL
+        // ==========================================
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const token = (userCredential.user as any).accessToken;
+        localStorage.setItem("token", token);
 
-    ui.reset();
-    ui.start("#firebaseui-auth-container", uiConfig);
-  }, [selectedRole, navigate]);
+        if (userCredential.user && (!userCredential.user.displayName || userCredential.user.displayName !== selectedRole)) {
+          await updateProfile(userCredential.user, {
+            displayName: selectedRole
+          });
+        }
+
+        navigate("/dashboard");
+      }
+    } catch (error: any) {
+      console.error("Erro na autenticação:", error.code);
+      
+      // Tratamento customizado de mensagens de erro
+      if (error.code === "auth/email-already-in-use") {
+        setAuthError("Este e-mail já está cadastrado. Tente fazer login.");
+      } else if (error.code === "auth/weak-password") {
+        setAuthError("A senha precisa ter pelo menos 6 caracteres.");
+      } else if (error.code === "auth/invalid-credential" || error.code === "auth/wrong-password" || error.code === "auth/user-not-found") {
+        setAuthError("E-mail ou senha inválidos.");
+      } else {
+        setAuthError("Ocorreu um erro operacional. Tente novamente.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -142,18 +147,90 @@ const uiConfig = {
         className="w-16 h-16 rounded-2xl shadow-lg shadow-emerald-500/20 mb-8"
       />
 
-      {/* TELA DE FORMULÁRIO DO FIREBASE (Se o perfil foi selecionado) */}
+      {/* FORMULÁRIO CONTROLADO (LOGIN OU CADASTRO) */}
       {selectedRole ? (
         <div className="flex flex-col items-center w-full max-w-md animate-fade-in">
           <h1 className="text-2xl font-bold mb-2 text-center">
-            Acesso como {selectedRole}
+            {isSignUpMode ? `Criar Conta - ${selectedRole}` : `Acesso como ${selectedRole}`}
           </h1>
           <p className="text-gray-400 mb-6 text-center text-sm">
-            Insira suas credenciais cadastradas para continuar.
+            {isSignUpMode 
+              ? "Defina suas credenciais para registrar um novo acesso." 
+              : "Insira suas credenciais cadastradas para continuar."}
           </p>
 
-          {/* O FirebaseUI vai renderizar o painel pronto dentro daqui */}
-          <div id="firebaseui-auth-container" className="w-full text-black"></div>
+          <form onSubmit={handleAuthSubmit} className="w-full space-y-4 bg-[#1E293B]/60 p-6 rounded-2xl border border-white/10 shadow-xl">
+            
+            {authError && (
+              <div className="p-3 bg-red-500/20 border border-red-500/40 text-red-400 rounded-lg text-xs font-medium text-center">
+                {authError}
+              </div>
+            )}
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-medium text-gray-400">E-mail</label>
+              <div className="relative">
+                <Mail className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                <input 
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="exemplo@gmail.com"
+                  className="w-full pl-9 pr-3 py-2.5 bg-[#0F172A]/80 border border-white/10 rounded-lg text-sm text-[#F8FAFC] focus:outline-none focus:border-emerald-500/50 transition-colors"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-medium text-gray-400">Senha</label>
+              <div className="relative">
+                <Lock className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                <input 
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  className="w-full pl-9 pr-3 py-2.5 bg-[#0F172A]/80 border border-white/10 rounded-lg text-sm text-[#F8FAFC] focus:outline-none focus:border-emerald-500/50 transition-colors"
+                />
+              </div>
+            </div>
+
+            <button 
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full py-2.5 mt-2 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/40 text-white font-medium text-sm rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-500/10"
+            >
+              {isSignUpMode ? (
+                <>
+                  <UserPlus className="w-4 h-4" />
+                  {isSubmitting ? "Criando Conta..." : "Cadastrar e Entrar"}
+                </>
+              ) : (
+                <>
+                  <LogIn className="w-4 h-4" />
+                  {isSubmitting ? "Autenticando..." : "Entrar"}
+                </>
+              )}
+            </button>
+
+            {/* O BOTÃO ALTERNADOR DE MODELO DE LOGIN / CRIAÇÃO DE CONTA */}
+            <div className="text-center pt-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSignUpMode(!isSignUpMode);
+                  setAuthError(null);
+                }}
+                className="text-xs text-gray-400 hover:text-emerald-400 transition-colors cursor-pointer underline underline-offset-4"
+              >
+                {isSignUpMode 
+                  ? "Já possui uma conta? Faça login aqui" 
+                  : "Não possui uma conta? Cadastre-se aqui"}
+              </button>
+            </div>
+          </form>
 
           <button
             onClick={() => setSelectedRole(null)}
@@ -164,7 +241,7 @@ const uiConfig = {
           </button>
         </div>
       ) : (
-        /* TELA DOS 3 CARDS ORIGINAIS (Se nenhum perfil foi selecionado) */
+        /* TELA DOS 3 CARDS ORIGINAIS */
         <div className="flex flex-col items-center w-full max-w-4xl">
           <h1 className="text-2xl md:text-3xl font-bold mb-2 text-center">
             Selecione seu Perfil de Acesso
