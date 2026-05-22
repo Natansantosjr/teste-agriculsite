@@ -53,34 +53,36 @@ const roles: RoleCard[] = [
 ];
 
 export default function Login() {
-  const navigate = useNavigate();
+ const navigate = useNavigate();
   const { isAuthenticated, isLoading } = useAuth();
-  
-  // Estado para controlar qual perfil foi clicado
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
 
   const handleRoleSelect = (role: string) => {
     localStorage.setItem("selected_role", role);
-    setSelectedRole(role); // Define o estado para mudar a tela para o login
+    setSelectedRole(role);
   };
 
   useEffect(() => {
-    // Só ativa o FirebaseUI se o usuário escolheu um perfil e a div container existir
-    if (!selectedRole) return;
+    // Pega ou cria a instância do painel visual do Firebase
+    const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
+
+    // Se o usuário voltou para a seleção de perfis, limpa a caixinha antiga da tela!
+    if (!selectedRole) {
+      ui.reset(); 
+      return;
+    }
 
     const uiConfig = {
-      signInSuccessUrl: "/dashboard", // Para onde vai após logar com sucesso
+      signInSuccessUrl: "/dashboard",
       signInOptions: [
         {
-          provider: "password", // Habilita login tradicional por email e senha
+          provider: "password",
           requireDisplayName: false,
         },
       ],
-      credentialHelper: firebaseui.auth.CredentialHelper.NONE, // Desativa popups extras do Google
+      credentialHelper: firebaseui.auth.CredentialHelper.NONE,
     };
 
-    // Inicializa ou reaproveita o painel visual do FirebaseUI
-    const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
     ui.start("#firebaseui-auth-container", uiConfig);
   }, [selectedRole]);
 
@@ -118,7 +120,7 @@ export default function Login() {
             Insira suas credenciais cadastradas para continuar.
           </p>
 
-          {/* O FirebaseUI vai renderizar o painel pronto do Google dentro dessa div */}
+          {/* O FirebaseUI vai renderizar o painel pronto dentro daqui */}
           <div id="firebaseui-auth-container" className="w-full text-black"></div>
 
           <button
@@ -130,7 +132,7 @@ export default function Login() {
           </button>
         </div>
       ) : (
-        /* TELA DOS 3 CARDS ORIGINAIS (Se nenhum perfil foi selecionado ainda) */
+        /* TELA DOS 3 CARDS ORIGINAIS (Se nenhum perfil foi selecionado) */
         <div className="flex flex-col items-center w-full max-w-4xl">
           <h1 className="text-2xl md:text-3xl font-bold mb-2 text-center">
             Selecione seu Perfil de Acesso
