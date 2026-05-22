@@ -9,11 +9,15 @@ import { getAuth } from "firebase/auth";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
 
+
 // 1. Substitua aqui com as credenciais que o console do Firebase te deu:
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY_AQUI",
-  authDomain: "seu-projeto.firebaseapp.com",
-  projectId: "seu-projeto-id",
+apiKey: "AIzaSyD5G5KJneEy3nL1Yn6mjKItxnM_OaYFe2M",
+  authDomain: "agriculsite.firebaseapp.com",
+  projectId: "agriculsite",
+  storageBucket: "agriculsite.firebasestorage.app",
+  messagingSenderId: "963600091219",
+  appId: "1:963600091219:web:becda787ba4117b081dea6"
 };
 
 // Inicializa o Firebase garantindo que não vai duplicar a instância
